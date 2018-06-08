@@ -1,0 +1,102 @@
+$(document).ready(function() {
+
+	//메뉴 클릭 이벤트
+	$('.navi').find('> ul > li').on('click', function() {
+		$(this).find('.sub').stop().slideToggle('fast', function() {
+			$(this).parents('li').toggleClass('on', $(this).is(':visible'));
+			$(this).parents('li').siblings().removeClass('on').find('.sub').hide();
+			return false;
+		});
+	});
+
+	//셀렉트박스 이벤트
+	var selectTarget = $('.select_box select');
+	selectTarget.on('focus', function() {
+		$(this).parent().addClass('focus');
+	});
+	selectTarget.on('blur', function() {
+		$(this).parent().removeClass('focus');
+	});
+	selectTarget.change(function() {
+		var select_name = $(this).children('option:selected').text();
+		$(this).siblings('p').text(select_name);
+	});
+
+	//검색결과 표 클릭 이벤트
+	$('.search_result').find('tbody tr').on('click', function() {
+		window.open('popup.html', '_blank', 'width=1920px,height=1080px,toolbars=no,scrollbars=no');
+		return false;
+	});
+
+	//팝업 닫기
+	$('.btn_closed').on('click', function() {
+		window.open('about:blank', '_self').close();
+	});
+	
+	//남녀 취업률 비교 차트
+	var genderChart = document.getElementById("genderChart");
+	var myChart = new Chart(genderChart, {
+		type: 'bar',
+		data: {
+			labels: ["졸업자(외국인 제외)", "취업자", "진학자", "입대자", "취업불가능자", "기타"],
+			datasets: [{
+				label: '남자',
+				data: [1999, 953, 189, 13, 1, 843],
+				backgroundColor: [
+					'rgba(54, 162, 235, 0.2)',
+					'rgba(54, 162, 235, 0.2)',
+					'rgba(54, 162, 235, 0.2)',
+					'rgba(54, 162, 235, 0.2)',
+					'rgba(54, 162, 235, 0.2)',
+					'rgba(54, 162, 235, 0.2)'
+				],
+				borderColor: [
+					'rgba(54, 162, 235, 1)',
+					'rgba(54, 162, 235, 1)',
+					'rgba(54, 162, 235, 1)',
+					'rgba(54, 162, 235, 1)',
+					'rgba(54, 162, 235, 1)',
+					'rgba(54, 162, 235, 1)'
+				],
+				borderWidth: 1
+			}, {
+				label: '여자',
+				data: [1583, 653, 115, 0, 0, 815],
+				backgroundColor: [
+					'rgba(255, 99, 132, 0.2)',
+					'rgba(255, 99, 132, 0.2)',
+					'rgba(255, 99, 132, 0.2)',
+					'rgba(255, 99, 132, 0.2)',
+					'rgba(255, 99, 132, 0.2)',
+					'rgba(255, 99, 132, 0.2)'
+				],
+				borderColor: [
+					'rgba(255,99,132,1)',
+					'rgba(255,99,132,1)',
+					'rgba(255,99,132,1)',
+					'rgba(255,99,132,1)',
+					'rgba(255,99,132,1)',
+					'rgba(255,99,132,1)'
+				],
+				borderWidth: 1
+			}]
+		},
+		options: {
+			scales: {
+				yAxes: [{
+					ticks: {
+						beginAtZero:true
+					}
+				}]
+			}
+		}
+	});
+	//차트 클릭 이벤트
+	/*genderChart.onclick = function (evt) {
+        var activePoints = myChart.getElementsAtEventForMode(evt, 'point', myChart.options);
+        var firstPoint = activePoints[0];
+        var label = myChart.data.labels[firstPoint._index];
+        var value = myChart.data.datasets[firstPoint._datasetIndex].data[firstPoint._index];
+        alert(label + ": " + value);
+    };*/
+});

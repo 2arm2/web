@@ -1,0 +1,165 @@
+<!DOCTYPE HTML>
+<html lang="ko">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,target-densitydpi=medium-dpi">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta property="og:title" content="건국대학교 졸업생 취업진로현황 분석시스템">
+	<meta property="og:site_name" content="건국대학교 졸업생 취업진로현황 분석시스템">
+	<meta property="og:type" content="website">
+	<meta property="og:url" content="http://kustat.njob.co.kr">
+	<meta property="og:image" content="images/common/og_image.png">
+	<meta property="og:image:width" content="400">
+	<meta property="og:image:height" content="210">
+	<meta property="og:description" content="건국대학교 졸업생 취업진로현황 분석시스템">
+	<meta name="description" content="건국대학교 졸업생 취업진로현황 분석시스템">
+	<title>건국대학교 졸업생 취업진로현황 분석시스템</title>
+	<link rel="canonical" href="http://kustat.njob.co.kr">
+	<link rel="shortcut icon" href="images/common/favicon.ico">
+	<link rel="apple-touch-icon-precomposed" href="images/favicon/favicon.png">
+	<link rel="stylesheet" href="lib/css/common.css">
+	<script type="text/javascript" src="lib/js/jquery-1.11.0.min.js"></script>
+	<script type="text/javascript" src="lib/js/Chart.min.js"></script>
+	<script type="text/javascript" src="lib/js/common.js"></script>
+</head>
+<body class="bg_popup">
+	<!-- 경쟁대학 취업률 비교 팝업 -->
+	<div class="popup_wrap">
+		<h1>건국대학교 졸업생 취업진로현황 분석시스템</h1>
+		<h2>경쟁대학 취업률 비교 분석</h2>
+		<h3>경쟁대학 취업률 비교</h3>
+		<div class="one_chart"><canvas id="rivalChart"></canvas></div>
+		<div class="btn_wrap">
+			<button type="button" class="save_pdf">PDF로 저장</button>
+			<button type="button" class="btn_closed">닫기</button>
+		</div>
+	</div>
+	<!-- /경쟁대학 취업률 비교 팝업 -->
+	<script type="text/javascript">
+	//정렬 세팅
+	const CHART = document.getElementById("rivalChart");
+
+	Chart.plugins.register({
+	  beforeUpdate: function(chart) {
+		if (chart.options.sort) {
+		  let dataArray = chart.data.datasets[0].data.slice();
+		  let dataIndexes = dataArray.map((d, i) => i);
+		  dataIndexes.sort((a, b) => {
+			return dataArray[a] - dataArray[b];
+		  });
+
+		  // sort data array as well
+		  dataArray.sort((a, b) => b - a);
+
+		  // At this point dataIndexes is sorted by value of the data, so we know how the indexes map to each other
+		  let meta = chart.getDatasetMeta(0);
+		  let newMeta = [];
+		  let labels = chart.data.labels;
+		  let newLabels = [];
+		  
+		  meta.data.forEach((a, i) => {
+			newMeta[dataIndexes[i]] = a;
+			newLabels[dataIndexes[i]] = chart.data.labels[i];
+		  });
+
+		  meta.data = newMeta;
+		  chart.data.datasets[0].data = dataArray;
+		  chart.data.labels = newLabels;
+		}
+	  }
+	});
+
+	//경쟁대학 취업률 비교 차트
+	var rivalChart = document.getElementById("rivalChart");
+	var myChart = new Chart(rivalChart, {
+		type: 'bar',
+		data: {
+			labels: ["한국외국어대학교", "건국대학교", "동국대학교", "서울시립대학교", "아주대학교", "인하대학교", "중앙대학교", "경희대학교", "한양대학교", "성균관대학교", "숙명여자대학교", "성신여자대학교", "상명대학교", "고려대학교", "서강대학교"],
+			datasets: [{
+				label: '2017년도 경쟁대학 취업률',
+				data: ["64.5", "60.1", "58", "57.3", "56.8", "56.7", "55.3", "60.1", "58", "57.3", "56.8", "56.7", "55.3", "56.8", "56.7"],
+				backgroundColor: [
+					'rgba(75, 192, 192, 0.2)',
+					'rgba(75, 192, 192, 0.2)',
+					'rgba(75, 192, 192, 0.2)',
+					'rgba(75, 192, 192, 0.2)',
+					'rgba(75, 192, 192, 0.2)',
+					'rgba(75, 192, 192, 0.2)',
+					'rgba(153, 102, 255, 0.2)',
+					'rgba(75, 192, 192, 0.2)',
+					'rgba(75, 192, 192, 0.2)',
+					'rgba(75, 192, 192, 0.2)',
+					'rgba(75, 192, 192, 0.2)',
+					'rgba(75, 192, 192, 0.2)',
+					'rgba(75, 192, 192, 0.2)',
+					'rgba(75, 192, 192, 0.2)',
+					'rgba(75, 192, 192, 0.2)'
+				],
+				borderColor: [
+					'rgba(75, 192, 192, 1)',
+					'rgba(75, 192, 192, 1)',
+					'rgba(75, 192, 192, 1)',
+					'rgba(75, 192, 192, 1)',
+					'rgba(75, 192, 192, 1)',
+					'rgba(75, 192, 192, 1)',
+					'rgba(153, 102, 255, 1)',
+					'rgba(75, 192, 192, 1)',
+					'rgba(75, 192, 192, 1)',
+					'rgba(75, 192, 192, 1)',
+					'rgba(75, 192, 192, 1)',
+					'rgba(75, 192, 192, 1)',
+					'rgba(75, 192, 192, 1)',
+					'rgba(75, 192, 192, 1)',
+					'rgba(75, 192, 192, 1)',
+					'rgba(75, 192, 192, 1)'
+				],
+				borderWidth: 1
+			}]
+		},
+		options: {
+			scales: {
+				yAxes: [{
+					ticks: {
+						beginAtZero:true,
+						max: 100
+					}
+				}],
+				xAxes: [{
+					ticks: {
+						autoSkip: false
+					}
+				}]
+			},
+			animation: {
+				duration: 500,
+				easing: "easeOutQuart",
+				onComplete: function () {
+					// render the value of the chart above the bar
+					var ctx = this.chart.ctx;
+					ctx.font = Chart.helpers.fontString(Chart.defaults.global.defaultFontSize, 'normal', Chart.defaults.global.defaultFontFamily);
+					ctx.fillStyle = this.chart.config.options.defaultFontColor;
+					ctx.textAlign = 'center';
+					ctx.textBaseline = 'bottom';
+					this.data.datasets.forEach(function (dataset) {
+						for (var i = 0; i < dataset.data.length; i++) {
+							var model = dataset._meta[Object.keys(dataset._meta)[0]].data[i]._model;
+							var percent = String(Math.round(dataset.data[i]).toFixed(1)) + "%";
+							ctx.fillText(percent, model.x, model.y - 5);
+						}
+					});
+				}
+			},
+			hover: {
+				animationDuration: 0
+			}
+		}
+	});
+
+	//정렬
+	myChart.options.sort = true;
+	myChart.update();
+	myChart.options.sort = false;
+
+	</script>
+</body>
+</html>

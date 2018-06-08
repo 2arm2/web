@@ -1,0 +1,779 @@
+<!DOCTYPE HTML>
+<html lang="ko">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,target-densitydpi=medium-dpi">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta property="og:title" content="건국대학교 졸업생 취업진로현황 분석시스템">
+	<meta property="og:site_name" content="건국대학교 졸업생 취업진로현황 분석시스템">
+	<meta property="og:type" content="website">
+	<meta property="og:url" content="http://kustat.njob.co.kr">
+	<meta property="og:image" content="images/common/og_image.png">
+	<meta property="og:image:width" content="400">
+	<meta property="og:image:height" content="210">
+	<meta property="og:description" content="건국대학교 졸업생 취업진로현황 분석시스템">
+	<meta name="description" content="건국대학교 졸업생 취업진로현황 분석시스템">
+	<title>건국대학교 졸업생 취업진로현황 분석시스템</title>
+	<link rel="canonical" href="http://kustat.njob.co.kr">
+	<link rel="shortcut icon" href="images/common/favicon.ico">
+	<link rel="apple-touch-icon-precomposed" href="images/favicon/favicon.png">
+	<link rel="stylesheet" href="lib/css/common.css">
+	<script type="text/javascript" src="lib/js/jquery-1.11.0.min.js"></script>
+	<script type="text/javascript" src="lib/js/Chart.min.js"></script>
+	<script type="text/javascript" src="lib/js/common.js"></script>
+</head>
+<body class="bg_popup">
+	<!-- 최근 3년간 남녀 취업률 비교 팝업 -->
+	<div class="popup_wrap">
+		<h1>건국대학교 졸업생 취업진로현황 분석시스템</h1>
+		<h2>본교 취업률 항목별 분석</h2>
+		<h3>최근 3년간 남녀 취업률 비교</h3>
+		<div class="chart_wrap clearfix">
+			<div><h4>학제별 비교(남자)</h4><canvas id="schoolSystemManChartLine"></canvas></div>
+			<div><h4>학제별 비교(여자)</h4><canvas id="schoolSystemWomanChartLine"></canvas></div>
+			<div><h4>설립별 비교(남자)</h4><canvas id="byEstablishmentManChartLine"></canvas></div>
+			<div><h4>설립별 비교(여자)</h4><canvas id="byEstablishmentWomanChartLine"></canvas></div>
+			<div><h4>수도권/비수도권 비교(남자)</h4><canvas id="capitalAreaManChartLine"></canvas></div>
+			<div><h4>수도권/비수도권 비교(여자)</h4><canvas id="capitalAreaWomanChartLine"></canvas></div>
+		</div>
+		<div class="one_chart"><h4>권역별 비교(남자)</h4><canvas id="sixAreasManChartLine"></canvas></div>
+		<div class="one_chart"><h4>권역별 비교(여자)</h4><canvas id="sixAreasWomanChartLine"></canvas></div>
+		<div class="btn_wrap">
+			<button type="button" class="save_pdf">PDF로 저장</button>
+			<button type="button" class="btn_closed">닫기</button>
+		</div>
+	</div>
+	<!-- /최근 3년간 남녀 취업률 비교 팝업 -->
+	<script type="text/javascript">
+	//최근 3년간 남녀 취업률 비교(학제별-남자) 차트
+	var schoolSystemManChartLine = document.getElementById("schoolSystemManChartLine");
+	var myChart = new Chart(schoolSystemManChartLine, {
+		type: 'line',
+		data: {
+			labels: ["2015년", "2016년", "2017년"],
+			datasets: [{
+				label: '본교(남자)',
+				fill: false,
+				pointBorderWidth: 10,
+				data: [44.8, 52.2, 30.3],
+				backgroundColor: [
+					'rgba(116, 210, 72, 0.2)'
+				],
+				borderColor: [
+					'rgba(116, 210, 72, 1)'
+				],
+				borderWidth: 2,
+				pointHoverBackgroundColor: 'rgba(116, 210, 72, 1)',
+				pointHoverBorderColor: 'rgba(116, 210, 72, 1)'
+			}, {
+				label: '대학교 평균(남자)',
+				fill: false,
+				pointBorderWidth: 3,
+				data: [34.8, 42.2, 24.3],
+				backgroundColor: [
+					'rgba(54, 162, 235, 0.2)'
+				],
+				borderColor: [
+					'rgba(54, 162, 235, 0.5)'
+				],
+				borderWidth: 2,
+				pointHoverBackgroundColor: 'rgba(54, 162, 235, 0.5)',
+				pointHoverBorderColor: 'rgba(54, 162, 235, 0.5)'
+			}]
+		},
+		options: {
+			scales: {
+				yAxes: [{
+					ticks: {
+						beginAtZero:true
+					}
+				}]
+			},
+			elements: {
+				line: {
+					tension: 0
+				}
+			},
+			tooltips: {
+				callbacks: {
+					label: function(tooltipItem, data) {
+						var dataset = data.datasets[tooltipItem.datasetIndex];
+						var total = dataset.data.reduce(function(previousValue, currentValue, currentIndex, array) {
+							return previousValue + currentValue;
+						});
+					    var currentValue = dataset.data[tooltipItem.index];
+					    var precentage = Math.floor(((currentValue/total) * 100)+0.5).toFixed(1);
+					    return precentage + "%";
+					}
+				}
+			}
+		}
+	});
+
+	////////////////////////////////////////////////////////////////////////////////////////
+	////////////////////////////////////////////////////////////////////////////////////////
+	//최근 3년간 남녀 취업률 비교(학제별-여자) 차트
+	var schoolSystemWomanChartLine = document.getElementById("schoolSystemWomanChartLine");
+	var myChart = new Chart(schoolSystemWomanChartLine, {
+		type: 'line',
+		data: {
+			labels: ["2015년", "2016년", "2017년"],
+			datasets: [{
+				label: '본교(여자)',
+				fill: false,
+				pointBorderWidth: 10,
+				data: [44.8, 52.2, 30.3],
+				backgroundColor: [
+					'rgba(116, 210, 72, 0.2)'
+				],
+				borderColor: [
+					'rgba(116, 210, 72, 1)'
+				],
+				borderWidth: 2,
+				pointHoverBackgroundColor: 'rgba(116, 210, 72, 1)',
+				pointHoverBorderColor: 'rgba(116, 210, 72, 1)'
+			}, {
+				label: '대학교 평균(여자)',
+				fill: false,
+				pointBorderWidth: 3,
+				data: [34.8, 42.2, 24.3],
+				backgroundColor: [
+					'rgba(255, 99, 132, 0.2)'
+				],
+				borderColor: [
+					'rgba(255, 99, 132, 0.5)'
+				],
+				borderWidth: 2,
+				pointHoverBackgroundColor: 'rgba(255, 99, 132, 0.5)',
+				pointHoverBorderColor: 'rgba(255, 99, 132, 0.5)'
+			}]
+		},
+		options: {
+			scales: {
+				yAxes: [{
+					ticks: {
+						beginAtZero:true
+					}
+				}]
+			},
+			elements: {
+				line: {
+					tension: 0
+				}
+			},
+			tooltips: {
+				callbacks: {
+					label: function(tooltipItem, data) {
+						var dataset = data.datasets[tooltipItem.datasetIndex];
+						var total = dataset.data.reduce(function(previousValue, currentValue, currentIndex, array) {
+							return previousValue + currentValue;
+						});
+					    var currentValue = dataset.data[tooltipItem.index];
+					    var precentage = Math.floor(((currentValue/total) * 100)+0.5).toFixed(1);
+					    return precentage + "%";
+					}
+				}
+			}
+		}
+	});
+
+	////////////////////////////////////////////////////////////////////////////////////////
+	////////////////////////////////////////////////////////////////////////////////////////
+	//최근 3년간 남녀 취업률 비교(설립별-남자) 차트
+	var byEstablishmentManChartLine = document.getElementById("byEstablishmentManChartLine");
+	var myChart = new Chart(byEstablishmentManChartLine, {
+		type: 'line',
+		data: {
+			labels: ["2015년", "2016년", "2017년"],
+			datasets: [{
+				label: '본교(남자)',
+				fill: false,
+				pointBorderWidth: 10,
+				data: [44.8, 52.2, 30.3],
+				backgroundColor: [
+					'rgba(116, 210, 72, 0.2)'
+				],
+				borderColor: [
+					'rgba(116, 210, 72, 1)'
+				],
+				borderWidth: 2,
+				pointHoverBackgroundColor: 'rgba(116, 210, 72, 1)',
+				pointHoverBorderColor: 'rgba(116, 210, 72, 1)'
+			}, {
+				label: '국립/공립(남자)',
+				fill: false,
+				pointBorderWidth: 3,
+				data: [34.8, 42.2, 24.3],
+				backgroundColor: [
+					'rgba(153, 102, 255, 0.2)'
+				],
+				borderColor: [
+					'rgba(153, 102, 255, 0.5)'
+				],
+				borderWidth: 2,
+				pointHoverBackgroundColor: 'rgba(255, 99, 132, 0.5)',
+				pointHoverBorderColor: 'rgba(255, 99, 132, 0.5)'
+			}, {
+				label: '사립(남자)',
+				fill: false,
+				pointBorderWidth: 3,
+				data: [40.8, 22.2, 44.3],
+				backgroundColor: [
+					'rgba(54, 162, 235, 0.2)'
+				],
+				borderColor: [
+					'rgba(54, 162, 235, 0.5)'
+				],
+				borderWidth: 2,
+				pointHoverBackgroundColor: 'rgba(54, 162, 235, 0.5)',
+				pointHoverBorderColor: 'rgba(54, 162, 235, 0.5)'
+			}]
+		},
+		options: {
+			scales: {
+				yAxes: [{
+					ticks: {
+						beginAtZero:true
+					}
+				}]
+			},
+			elements: {
+				line: {
+					tension: 0
+				}
+			},
+			tooltips: {
+				callbacks: {
+					label: function(tooltipItem, data) {
+						var dataset = data.datasets[tooltipItem.datasetIndex];
+						var total = dataset.data.reduce(function(previousValue, currentValue, currentIndex, array) {
+							return previousValue + currentValue;
+						});
+					    var currentValue = dataset.data[tooltipItem.index];
+					    var precentage = Math.floor(((currentValue/total) * 100)+0.5).toFixed(1);
+					    return precentage + "%";
+					}
+				}
+			}
+		}
+	});
+
+	////////////////////////////////////////////////////////////////////////////////////////
+	////////////////////////////////////////////////////////////////////////////////////////
+	//최근 3년간 남녀 취업률 비교(설립별-여자) 차트
+	var byEstablishmentWomanChartLine = document.getElementById("byEstablishmentWomanChartLine");
+	var myChart = new Chart(byEstablishmentWomanChartLine, {
+		type: 'line',
+		data: {
+			labels: ["2015년", "2016년", "2017년"],
+			datasets: [{
+				label: '본교(여자)',
+				fill: false,
+				pointBorderWidth: 10,
+				data: [44.8, 52.2, 30.3],
+				backgroundColor: [
+					'rgba(116, 210, 72, 0.2)'
+				],
+				borderColor: [
+					'rgba(116, 210, 72, 1)'
+				],
+				borderWidth: 2,
+				pointHoverBackgroundColor: 'rgba(116, 210, 72, 1)',
+				pointHoverBorderColor: 'rgba(116, 210, 72, 1)'
+			}, {
+				label: '국립/공립(여자)',
+				fill: false,
+				pointBorderWidth: 3,
+				data: [34.8, 42.2, 24.3],
+				backgroundColor: [
+					'rgba(255, 159, 64, 0.2)'
+				],
+				borderColor: [
+					'rgba(255, 159, 64, 0.5)'
+				],
+				borderWidth: 2,
+				pointHoverBackgroundColor: 'rgba(255, 159, 64, 0.5)',
+				pointHoverBorderColor: 'rgba(255, 159, 64, 0.5)'
+			}, {
+				label: '사립(여자)',
+				fill: false,
+				pointBorderWidth: 3,
+				data: [40.8, 22.2, 44.3],
+				backgroundColor: [
+					'rgba(255, 99, 132, 0.2)'
+				],
+				borderColor: [
+					'rgba(255, 99, 132, 0.5)'
+				],
+				borderWidth: 2,
+				pointHoverBackgroundColor: 'rgba(255, 99, 132, 0.5)',
+				pointHoverBorderColor: 'rgba(255, 99, 132, 0.5)'
+			}]
+		},
+		options: {
+			scales: {
+				yAxes: [{
+					ticks: {
+						beginAtZero:true
+					}
+				}]
+			},
+			elements: {
+				line: {
+					tension: 0
+				}
+			},
+			tooltips: {
+				callbacks: {
+					label: function(tooltipItem, data) {
+						var dataset = data.datasets[tooltipItem.datasetIndex];
+						var total = dataset.data.reduce(function(previousValue, currentValue, currentIndex, array) {
+							return previousValue + currentValue;
+						});
+					    var currentValue = dataset.data[tooltipItem.index];
+					    var precentage = Math.floor(((currentValue/total) * 100)+0.5).toFixed(1);
+					    return precentage + "%";
+					}
+				}
+			}
+		}
+	});
+
+	////////////////////////////////////////////////////////////////////////////////////////
+	////////////////////////////////////////////////////////////////////////////////////////
+	//최근 3년간 남녀 취업률 비교(수도권/비수도권-남자) 차트
+	var capitalAreaManChartLine = document.getElementById("capitalAreaManChartLine");
+	var myChart = new Chart(capitalAreaManChartLine, {
+		type: 'line',
+		data: {
+			labels: ["2015년", "2016년", "2017년"],
+			datasets: [{
+				label: '본교(남자)',
+				fill: false,
+				pointBorderWidth: 10,
+				data: [44.8, 52.2, 30.3],
+				backgroundColor: [
+					'rgba(116, 210, 72, 0.2)'
+				],
+				borderColor: [
+					'rgba(116, 210, 72, 1)'
+				],
+				borderWidth: 2,
+				pointHoverBackgroundColor: 'rgba(116, 210, 72, 1)',
+				pointHoverBorderColor: 'rgba(116, 210, 72, 1)'
+			}, {
+				label: '수도권(남자)',
+				fill: false,
+				pointBorderWidth: 3,
+				data: [34.8, 42.2, 24.3],
+				backgroundColor: [
+					'rgba(153, 102, 255, 0.2)'
+				],
+				borderColor: [
+					'rgba(153, 102, 255, 0.5)'
+				],
+				borderWidth: 2,
+				pointHoverBackgroundColor: 'rgba(255, 99, 132, 0.5)',
+				pointHoverBorderColor: 'rgba(255, 99, 132, 0.5)'
+			}, {
+				label: '비수도권(남자)',
+				fill: false,
+				pointBorderWidth: 3,
+				data: [40.8, 22.2, 44.3],
+				backgroundColor: [
+					'rgba(54, 162, 235, 0.2)'
+				],
+				borderColor: [
+					'rgba(54, 162, 235, 0.5)'
+				],
+				borderWidth: 2,
+				pointHoverBackgroundColor: 'rgba(54, 162, 235, 0.5)',
+				pointHoverBorderColor: 'rgba(54, 162, 235, 0.5)'
+			}]
+		},
+		options: {
+			scales: {
+				yAxes: [{
+					ticks: {
+						beginAtZero:true
+					}
+				}]
+			},
+			elements: {
+				line: {
+					tension: 0
+				}
+			},
+			tooltips: {
+				callbacks: {
+					label: function(tooltipItem, data) {
+						var dataset = data.datasets[tooltipItem.datasetIndex];
+						var total = dataset.data.reduce(function(previousValue, currentValue, currentIndex, array) {
+							return previousValue + currentValue;
+						});
+					    var currentValue = dataset.data[tooltipItem.index];
+					    var precentage = Math.floor(((currentValue/total) * 100)+0.5).toFixed(1);
+					    return precentage + "%";
+					}
+				}
+			}
+		}
+	});
+	
+	////////////////////////////////////////////////////////////////////////////////////////
+	////////////////////////////////////////////////////////////////////////////////////////
+	//최근 3년간 남녀 취업률 비교(수도권/비수도권-여자) 차트
+	var capitalAreaWomanChartLine = document.getElementById("capitalAreaWomanChartLine");
+	var myChart = new Chart(capitalAreaWomanChartLine, {
+		type: 'line',
+		data: {
+			labels: ["2015년", "2016년", "2017년"],
+			datasets: [{
+				label: '본교(여자)',
+				fill: false,
+				pointBorderWidth: 10,
+				data: [44.8, 52.2, 30.3],
+				backgroundColor: [
+					'rgba(116, 210, 72, 0.2)'
+				],
+				borderColor: [
+					'rgba(116, 210, 72, 1)'
+				],
+				borderWidth: 2,
+				pointHoverBackgroundColor: 'rgba(116, 210, 72, 1)',
+				pointHoverBorderColor: 'rgba(116, 210, 72, 1)'
+			}, {
+				label: '수도권(여자)',
+				fill: false,
+				pointBorderWidth: 3,
+				data: [34.8, 42.2, 24.3],
+				backgroundColor: [
+					'rgba(255, 159, 64, 0.2)'
+				],
+				borderColor: [
+					'rgba(255, 159, 64, 0.5)'
+				],
+				borderWidth: 2,
+				pointHoverBackgroundColor: 'rgba(255, 159, 64, 0.5)',
+				pointHoverBorderColor: 'rgba(255, 159, 64, 0.5)'
+			}, {
+				label: '비수도권(여자)',
+				fill: false,
+				pointBorderWidth: 3,
+				data: [40.8, 22.2, 44.3],
+				backgroundColor: [
+					'rgba(255, 99, 132, 0.2)'
+				],
+				borderColor: [
+					'rgba(255, 99, 132, 0.5)'
+				],
+				borderWidth: 2,
+				pointHoverBackgroundColor: 'rgba(255, 99, 132, 0.5)',
+				pointHoverBorderColor: 'rgba(255, 99, 132, 0.5)'
+			}]
+		},
+		options: {
+			scales: {
+				yAxes: [{
+					ticks: {
+						beginAtZero:true
+					}
+				}]
+			},
+			elements: {
+				line: {
+					tension: 0
+				}
+			},
+			tooltips: {
+				callbacks: {
+					label: function(tooltipItem, data) {
+						var dataset = data.datasets[tooltipItem.datasetIndex];
+						var total = dataset.data.reduce(function(previousValue, currentValue, currentIndex, array) {
+							return previousValue + currentValue;
+						});
+					    var currentValue = dataset.data[tooltipItem.index];
+					    var precentage = Math.floor(((currentValue/total) * 100)+0.5).toFixed(1);
+					    return precentage + "%";
+					}
+				}
+			}
+		}
+	});
+
+	////////////////////////////////////////////////////////////////////////////////////////
+	////////////////////////////////////////////////////////////////////////////////////////
+	//최근 3년간 남녀 취업률 비교(6개권역-남자) 차트
+	var sixAreasManChartLine = document.getElementById("sixAreasManChartLine");
+	var myChart = new Chart(sixAreasManChartLine, {
+		type: 'line',
+		data: {
+			labels: ["2015년", "2016년", "2017년"],
+			datasets: [{
+				label: '본교(남자)',
+				fill: false,
+				pointBorderWidth: 10,
+				data: [44.8, 52.2, 30.3],
+				backgroundColor: [
+					'rgba(116, 210, 72, 0.2)'
+				],
+				borderColor: [
+					'rgba(116, 210, 72, 1)'
+				],
+				borderWidth: 2,
+				pointHoverBackgroundColor: 'rgba(116, 210, 72, 1)',
+				pointHoverBorderColor: 'rgba(116, 210, 72, 1)'
+			}, {
+				label: '서울권(남자)',
+				fill: false,
+				pointBorderWidth: 3,
+				data: [34.8, 42.2, 24.3],
+				backgroundColor: [
+					'rgba(153, 102, 255, 0.2)'
+				],
+				borderColor: [
+					'rgba(153, 102, 255, 0.5)'
+				],
+				borderWidth: 2,
+				pointHoverBackgroundColor: 'rgba(153, 102, 255, 0.5)',
+				pointHoverBorderColor: 'rgba(153, 102, 255, 0.5)',
+			}, {
+				label: '경인권(남자)',
+				fill: false,
+				pointBorderWidth: 3,
+				data: [25.8, 22.2, 14.3],
+				backgroundColor: [
+					'rgba(54, 162, 235, 0.2)'
+				],
+				borderColor: [
+					'rgba(54, 162, 235, 0.5)'
+				],
+				borderWidth: 2,
+				pointHoverBackgroundColor: 'rgba(54, 162, 235, 0.5)',
+				pointHoverBorderColor: 'rgba(54, 162, 235, 0.5)'
+			}, {
+				label: '강원권(남자)',
+				fill: false,
+				pointBorderWidth: 3,
+				data: [44.8, 32.2, 20.3],
+				backgroundColor: [
+					'rgba(255, 99, 132, 0.2)'
+				],
+				borderColor: [
+					'rgba(255, 99, 132, 0.5)'
+				],
+				borderWidth: 2,
+				pointHoverBackgroundColor: 'rgba(255, 99, 132, 0.5)',
+				pointHoverBorderColor: 'rgba(255, 99, 132, 0.5)'
+			}, {
+				label: '충청권(남자)',
+				fill: false,
+				pointBorderWidth: 3,
+				data: [30.8, 44.2, 14.3],
+				backgroundColor: [
+					'rgba(255, 206, 86, 0.2)'
+				],
+				borderColor: [
+					'rgba(255, 206, 86, 0.5)'
+				],
+				borderWidth: 2,
+				pointHoverBackgroundColor: 'rgba(255, 206, 86, 0.5)',
+				pointHoverBorderColor: 'rgba(255, 206, 86, 0.5)'
+			}, {
+				label: '호남권(남자)',
+				fill: false,
+				pointBorderWidth: 3,
+				data: [38.8, 38.2, 28.3],
+				backgroundColor: [
+					'rgba(75, 192, 192, 0.2)'
+				],
+				borderColor: [
+					'rgba(75, 192, 192, 0.5)'
+				],
+				borderWidth: 2,
+				pointHoverBackgroundColor: 'rgba(75, 192, 192, 0.5)',
+				pointHoverBorderColor: 'rgba(75, 192, 192, 0.5)'
+			}, {
+				label: '영남권(남자)',
+				fill: false,
+				pointBorderWidth: 3,
+				data: [14.8, 62.2, 34.3],
+				backgroundColor: [
+					'rgba(255, 159, 64, 0.2)'
+				],
+				borderColor: [
+					'rgba(255, 159, 64, 0.5)'
+				],
+				borderWidth: 2,
+				pointHoverBackgroundColor: 'rgba(255, 159, 64, 0.5)',
+				pointHoverBorderColor: 'rgba(255, 159, 64, 0.5)'
+			}]
+		},
+		options: {
+			scales: {
+				yAxes: [{
+					ticks: {
+						beginAtZero:true
+					}
+				}]
+			},
+			elements: {
+				line: {
+					tension: 0
+				}
+			},
+			tooltips: {
+				callbacks: {
+					label: function(tooltipItem, data) {
+						var dataset = data.datasets[tooltipItem.datasetIndex];
+						var total = dataset.data.reduce(function(previousValue, currentValue, currentIndex, array) {
+							return previousValue + currentValue;
+						});
+					    var currentValue = dataset.data[tooltipItem.index];
+					    var precentage = Math.floor(((currentValue/total) * 100)+0.5).toFixed(1);
+					    return precentage + "%";
+					}
+				}
+			}
+		}
+	});
+
+	////////////////////////////////////////////////////////////////////////////////////////
+	////////////////////////////////////////////////////////////////////////////////////////
+	//최근 3년간 남녀 취업률 비교(6개권역-여자) 차트
+	var sixAreasWomanChartLine = document.getElementById("sixAreasWomanChartLine");
+	var myChart = new Chart(sixAreasWomanChartLine, {
+		type: 'line',
+		data: {
+			labels: ["2015년", "2016년", "2017년"],
+			datasets: [{
+				label: '본교(여자)',
+				fill: false,
+				pointBorderWidth: 10,
+				data: [44.8, 52.2, 30.3],
+				backgroundColor: [
+					'rgba(116, 210, 72, 0.2)'
+				],
+				borderColor: [
+					'rgba(116, 210, 72, 1)'
+				],
+				borderWidth: 2,
+				pointHoverBackgroundColor: 'rgba(116, 210, 72, 1)',
+				pointHoverBorderColor: 'rgba(116, 210, 72, 1)'
+			}, {
+				label: '서울권(여자)',
+				fill: false,
+				pointBorderWidth: 3,
+				data: [34.8, 42.2, 24.3],
+				backgroundColor: [
+					'rgba(153, 102, 255, 0.2)'
+				],
+				borderColor: [
+					'rgba(153, 102, 255, 0.5)'
+				],
+				borderWidth: 2,
+				pointHoverBackgroundColor: 'rgba(153, 102, 255, 0.5)',
+				pointHoverBorderColor: 'rgba(153, 102, 255, 0.5)',
+			}, {
+				label: '경인권(여자)',
+				fill: false,
+				pointBorderWidth: 3,
+				data: [25.8, 22.2, 14.3],
+				backgroundColor: [
+					'rgba(54, 162, 235, 0.2)'
+				],
+				borderColor: [
+					'rgba(54, 162, 235, 0.5)'
+				],
+				borderWidth: 2,
+				pointHoverBackgroundColor: 'rgba(54, 162, 235, 0.5)',
+				pointHoverBorderColor: 'rgba(54, 162, 235, 0.5)'
+			}, {
+				label: '강원권(여자)',
+				fill: false,
+				pointBorderWidth: 3,
+				data: [44.8, 32.2, 20.3],
+				backgroundColor: [
+					'rgba(255, 99, 132, 0.2)'
+				],
+				borderColor: [
+					'rgba(255, 99, 132, 0.5)'
+				],
+				borderWidth: 2,
+				pointHoverBackgroundColor: 'rgba(255, 99, 132, 0.5)',
+				pointHoverBorderColor: 'rgba(255, 99, 132, 0.5)'
+			}, {
+				label: '충청권(여자)',
+				fill: false,
+				pointBorderWidth: 3,
+				data: [30.8, 44.2, 14.3],
+				backgroundColor: [
+					'rgba(255, 206, 86, 0.2)'
+				],
+				borderColor: [
+					'rgba(255, 206, 86, 0.5)'
+				],
+				borderWidth: 2,
+				pointHoverBackgroundColor: 'rgba(255, 206, 86, 0.5)',
+				pointHoverBorderColor: 'rgba(255, 206, 86, 0.5)'
+			}, {
+				label: '호남권(여자)',
+				fill: false,
+				pointBorderWidth: 3,
+				data: [38.8, 38.2, 28.3],
+				backgroundColor: [
+					'rgba(75, 192, 192, 0.2)'
+				],
+				borderColor: [
+					'rgba(75, 192, 192, 0.5)'
+				],
+				borderWidth: 2,
+				pointHoverBackgroundColor: 'rgba(75, 192, 192, 0.5)',
+				pointHoverBorderColor: 'rgba(75, 192, 192, 0.5)'
+			}, {
+				label: '영남권(여자)',
+				fill: false,
+				pointBorderWidth: 3,
+				data: [14.8, 62.2, 34.3],
+				backgroundColor: [
+					'rgba(255, 159, 64, 0.2)'
+				],
+				borderColor: [
+					'rgba(255, 159, 64, 0.5)'
+				],
+				borderWidth: 2,
+				pointHoverBackgroundColor: 'rgba(255, 159, 64, 0.5)',
+				pointHoverBorderColor: 'rgba(255, 159, 64, 0.5)'
+			}]
+		},
+		options: {
+			scales: {
+				yAxes: [{
+					ticks: {
+						beginAtZero:true
+					}
+				}]
+			},
+			elements: {
+				line: {
+					tension: 0
+				}
+			},
+			tooltips: {
+				callbacks: {
+					label: function(tooltipItem, data) {
+						var dataset = data.datasets[tooltipItem.datasetIndex];
+						var total = dataset.data.reduce(function(previousValue, currentValue, currentIndex, array) {
+							return previousValue + currentValue;
+						});
+					    var currentValue = dataset.data[tooltipItem.index];
+					    var precentage = Math.floor(((currentValue/total) * 100)+0.5).toFixed(1);
+					    return precentage + "%";
+					}
+				}
+			}
+		}
+	});
+	</script>
+</body>
+</html>

@@ -1,0 +1,842 @@
+<!DOCTYPE HTML>
+<html lang="ko">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,target-densitydpi=medium-dpi">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta property="og:title" content="건국대학교 졸업생 취업진로현황 분석시스템">
+	<meta property="og:site_name" content="건국대학교 졸업생 취업진로현황 분석시스템">
+	<meta property="og:type" content="website">
+	<meta property="og:url" content="">
+	<meta property="og:image" content="/2018/konkuk/images/common/og_image.png">
+	<meta property="og:image:width" content="400">
+	<meta property="og:image:height" content="210">
+	<meta property="og:description" content="건국대학교 졸업생 취업진로현황 분석시스템">
+	<meta name="description" content="건국대학교 졸업생 취업진로현황 분석시스템">
+	<title>건국대학교 졸업생 취업진로현황 분석시스템</title>
+	<link rel="canonical" href="http://www.">
+	<link rel="shortcut icon" href="/2018/konkuk/images/common/favicon.ico">
+	<link rel="apple-touch-icon-precomposed" href="/2018/konkuk/images/favicon/favicon.png">
+	<link rel="stylesheet" href="lib/css/common.css">
+	<script type="text/javascript" src="lib/js/jquery-1.11.0.min.js"></script>
+	<script type="text/javascript" src="lib/js/common.js"></script>
+</head>
+<body>
+	<!-- header -->
+	<div id="header">
+		<div class="header clearfix">
+			<h1><a href="/">건국대학교 졸업생 취업진로현황 분석시스템</a></h1>
+			<ul class="clearfix">
+				<li class="on"><h2><a href="employment_rate01.html">본교 취업률 전체 현황</a></h2></li>
+				<li><h2><a href="analysis01_1.html">본교 취업률 항목별 분석</a></h2></li>
+				<li><h2><a href="company_classification.html">입사기업 기준 취업현황 분석</a></h2></li>
+			</ul>
+		</div>
+		<div class="admin_data_input">
+			<h2><a href="employment_statistics.html">취업통계조사</a></h2>
+		</div>
+		<div class="top">
+			<a href="super_admin.html">슈퍼관리자(super_admin)</a>
+			<button type="button">로그아웃</button>
+		</div>
+	</div>
+	<!-- /header -->
+	<!-- contents -->
+	<div id="contents">
+		<div class="title"><h2>본교 취업률 전체 현황</h2></div>
+		<div class="contents_wrap clearfix">
+			<!-- 플로팅 메뉴 -->
+			<div class="navi">
+				<h2>본교 취업률 전체 현황</h2>
+				<ul>
+					<li><h3><a href="employment_rate01.html">단과대학별 취업률</a></h3></li>
+					<li class="on"><h3><a href="employment_rate02.html">학과(전공)별 취업률</a></h3></li>
+				</ul>
+			</div>
+			<!-- /플로팅 메뉴 -->
+			<!-- 컨텐츠 -->
+			<div class="contents">
+				<div class="contents_title"><h3>학과(전공)별 취업률</h3><p>외국인유학생 제외</p></div>
+				<!-- 검색조건 -->
+				<div class="search_condition_wrap">
+					<h5>검색조건</h5>
+					<div class="search_condition">
+						<form action="">
+							<dl class="clearfix">
+								<dt><label for="selectYear">기간</label></dt>
+								<dd class="select_date">
+									<div class="select_box">
+										<p>선택</p>
+										<select name="selectYear" id="selectYear">
+											<option value="">선택</option>
+											<option value="">2017</option>
+											<option value="">2016</option>
+										</select>
+									</div>
+									<span>년 고등교육기관 졸업자 취업통계조사</span>
+								</dd>
+							</dl>
+							<dl class="clearfix">
+								<dt><label for="selectCollege">대학</label></dt>
+								<dd>
+									<div class="select_box">
+										<p>전체</p>
+										<select name="selectCollege" id="selectCollege">
+											<option value="">전체</option>
+										</select>
+									</div>
+								</dd>
+								<dt><label for="selectMajor">학부(과)</label></dt>
+								<dd>
+									<div class="select_box">
+										<p>전체</p>
+										<select name="selectMajor" id="selectMajor">
+											<option value="">전체</option>
+										</select>
+									</div>
+								</dd>
+							</dl>
+							<div class="btn_wrap">
+								<button type="button" class="btn_reset">초기화</button>
+								<button type="button" class="btn_search">검색</button>
+							</div>
+						</form>
+					</div>
+				</div>
+				<!-- /검색조건 -->
+				<!-- 검색결과 -->
+				<div class="search_result_wrap">
+					<h5>검색결과</h5>
+					<div class="search_result">
+						<!-- 검색결과 없을 경우, 기본 화면 -->
+						<p>검색 결과가 없습니다.</p>
+						<!-- /검색결과 없을 경우 -->
+						<!-- 검색결과 있을 경우 -->
+						<table>
+							<caption class="hidden">검색조건에 따른 학과(전공)별 취업률</caption>
+							<thead>
+								<tr>
+									<th scope="col">대학</th>
+									<th scope="col" class="major">학과(전공)명</th>
+									<th scope="col">졸업자</th>
+									<th scope="col">취업자</th>
+									<th scope="col">진학자</th>
+									<th scope="col">입대자</th>
+									<th scope="col">취업불가능자</th>
+									<th scope="col">기타</th>
+									<th scope="col">취업률</th>
+								</tr>
+							</thead>
+							<tbody>
+								<!-- 문과대학 -->
+								<tr>
+									<td rowspan="7" class="college">문과<br>대학</td>
+									<td class="major">국어국문학과</td>
+									<td>104</td>
+									<td>11</td>
+									<td>48</td>
+									<td>1</td>
+									<td>-</td>
+									<td>160</td>
+									<td>39.4%</td>
+								</tr>
+								<tr>
+									<td>영어영문학과</td>
+									<td>104</td>
+									<td>11</td>
+									<td>48</td>
+									<td>1</td>
+									<td>-</td>
+									<td>160</td>
+									<td>39.4%</td>
+								</tr>
+								<tr>
+									<td>중어중문학과</td>
+									<td>104</td>
+									<td>11</td>
+									<td>48</td>
+									<td>1</td>
+									<td>-</td>
+									<td>160</td>
+									<td>39.4%</td>
+								</tr>
+								<tr>
+									<td>철학과</td>
+									<td>104</td>
+									<td>11</td>
+									<td>48</td>
+									<td>1</td>
+									<td>-</td>
+									<td>160</td>
+									<td>39.4%</td>
+								</tr>
+								<tr>
+									<td>사학과</td>
+									<td>104</td>
+									<td>11</td>
+									<td>48</td>
+									<td>1</td>
+									<td>-</td>
+									<td>160</td>
+									<td>39.4%</td>
+								</tr>
+								<tr>
+									<td>미디어커뮤니케이션학과</td>
+									<td>104</td>
+									<td>11</td>
+									<td>48</td>
+									<td>1</td>
+									<td>-</td>
+									<td>160</td>
+									<td>39.4%</td>
+								</tr>
+								<tr>
+									<td>문화콘텐츠학과</td>
+									<td>104</td>
+									<td>11</td>
+									<td>48</td>
+									<td>1</td>
+									<td>-</td>
+									<td>160</td>
+									<td>39.4%</td>
+								</tr>
+								<!-- /문과대학 -->
+								<!-- 이과대학 -->
+								<tr>
+									<td rowspan="4" class="college">이과<br>대학</td>
+									<td class="major">수학과</td>
+									<td>104</td>
+									<td>11</td>
+									<td>48</td>
+									<td>1</td>
+									<td>-</td>
+									<td>160</td>
+									<td>39.4%</td>
+								</tr>
+								<tr>
+									<td>물리학과</td>
+									<td>104</td>
+									<td>11</td>
+									<td>48</td>
+									<td>1</td>
+									<td>-</td>
+									<td>160</td>
+									<td>39.4%</td>
+								</tr>
+								<tr>
+									<td>화학과</td>
+									<td>104</td>
+									<td>11</td>
+									<td>48</td>
+									<td>1</td>
+									<td>-</td>
+									<td>160</td>
+									<td>39.4%</td>
+								</tr>
+								<tr>
+									<td>지리학과</td>
+									<td>104</td>
+									<td>11</td>
+									<td>48</td>
+									<td>1</td>
+									<td>-</td>
+									<td>160</td>
+									<td>39.4%</td>
+								</tr>
+								<!-- /이과대학 -->
+								<!-- 건축대학 -->
+								<tr>
+									<td class="college">건축<br>대학</td>
+									<td class="major">건축학과</td>
+									<td>104</td>
+									<td>11</td>
+									<td>48</td>
+									<td>1</td>
+									<td>-</td>
+									<td>160</td>
+									<td>39.4%</td>
+								</tr>
+								<!-- /건축대학 -->
+								<!-- 공과대학 -->
+								<tr>
+									<td rowspan="11" class="college">공과<br>대학</td>
+									<td class="major">인프라시스템공학과</td>
+									<td>104</td>
+									<td>11</td>
+									<td>48</td>
+									<td>1</td>
+									<td>-</td>
+									<td>160</td>
+									<td>39.4%</td>
+								</tr>
+								<tr>
+									<td>환경공학과</td>
+									<td>104</td>
+									<td>11</td>
+									<td>48</td>
+									<td>1</td>
+									<td>-</td>
+									<td>160</td>
+									<td>39.4%</td>
+								</tr>
+								<tr>
+									<td>기계공학과</td>
+									<td>104</td>
+									<td>11</td>
+									<td>48</td>
+									<td>1</td>
+									<td>-</td>
+									<td>160</td>
+									<td>39.4%</td>
+								</tr>
+								<tr>
+									<td>기계설계학과</td>
+									<td>104</td>
+									<td>11</td>
+									<td>48</td>
+									<td>1</td>
+									<td>-</td>
+									<td>160</td>
+									<td>39.4%</td>
+								</tr>
+								<tr>
+									<td>항공우주정보시스템공학과</td>
+									<td>104</td>
+									<td>11</td>
+									<td>48</td>
+									<td>1</td>
+									<td>-</td>
+									<td>160</td>
+									<td>39.4%</td>
+								</tr>
+								<tr>
+									<td>전기공학과</td>
+									<td>104</td>
+									<td>11</td>
+									<td>48</td>
+									<td>1</td>
+									<td>-</td>
+									<td>160</td>
+									<td>39.4%</td>
+								</tr>
+								<tr>
+									<td>융합신소재공학과</td>
+									<td>104</td>
+									<td>11</td>
+									<td>48</td>
+									<td>1</td>
+									<td>-</td>
+									<td>160</td>
+									<td>39.4%</td>
+								</tr>
+								<tr>
+									<td>화학공학과</td>
+									<td>104</td>
+									<td>11</td>
+									<td>48</td>
+									<td>1</td>
+									<td>-</td>
+									<td>160</td>
+									<td>39.4%</td>
+								</tr>
+								<tr>
+									<td>생물공학과</td>
+									<td>104</td>
+									<td>11</td>
+									<td>48</td>
+									<td>1</td>
+									<td>-</td>
+									<td>160</td>
+									<td>39.4%</td>
+								</tr>
+								<tr>
+									<td>유기나노시스템공학과</td>
+									<td>104</td>
+									<td>11</td>
+									<td>48</td>
+									<td>1</td>
+									<td>-</td>
+									<td>160</td>
+									<td>39.4%</td>
+								</tr>
+								<tr>
+									<td>산업공학과</td>
+									<td>104</td>
+									<td>11</td>
+									<td>48</td>
+									<td>1</td>
+									<td>-</td>
+									<td>160</td>
+									<td>39.4%</td>
+								</tr>
+								<!-- /공과대학 -->
+								<!-- 정보통신대학 -->
+								<tr>
+									<td rowspan="3" class="college">정보<br>통신<br>대학</td>
+									<td class="major">인터넷·미디어공학과</td>
+									<td>104</td>
+									<td>11</td>
+									<td>48</td>
+									<td>1</td>
+									<td>-</td>
+									<td>160</td>
+									<td>39.4%</td>
+								</tr>
+								<tr>
+									<td>컴퓨터공학과</td>
+									<td>104</td>
+									<td>11</td>
+									<td>48</td>
+									<td>1</td>
+									<td>-</td>
+									<td>160</td>
+									<td>39.4%</td>
+								</tr>
+								<tr>
+									<td>전자공학과</td>
+									<td>104</td>
+									<td>11</td>
+									<td>48</td>
+									<td>1</td>
+									<td>-</td>
+									<td>160</td>
+									<td>39.4%</td>
+								</tr>
+								<!-- /정보통신대학 -->
+								<!-- 정치대학 -->
+								<tr>
+									<td rowspan="3" class="college">정치<br>대학</td>
+									<td class="major">정치외교학과</td>
+									<td>104</td>
+									<td>11</td>
+									<td>48</td>
+									<td>1</td>
+									<td>-</td>
+									<td>160</td>
+									<td>39.4%</td>
+								</tr>
+								<tr>
+									<td>행정학과</td>
+									<td>104</td>
+									<td>11</td>
+									<td>48</td>
+									<td>1</td>
+									<td>-</td>
+									<td>160</td>
+									<td>39.4%</td>
+								</tr>
+								<tr>
+									<td>부동산학과</td>
+									<td>104</td>
+									<td>11</td>
+									<td>48</td>
+									<td>1</td>
+									<td>-</td>
+									<td>160</td>
+									<td>39.4%</td>
+								</tr>
+								<!-- /정치대학 -->
+								<!-- 법과대학 -->
+								<tr>
+									<td class="college">법과<br>대학</td>
+									<td class="major">법학과</td>
+									<td>104</td>
+									<td>11</td>
+									<td>48</td>
+									<td>1</td>
+									<td>-</td>
+									<td>160</td>
+									<td>39.4%</td>
+								</tr>
+								<!-- /법과대학 -->
+								<!-- 상경대학 -->
+								<tr>
+									<td rowspan="4" class="college">상경<br>대학</td>
+									<td class="major">경제학과</td>
+									<td>104</td>
+									<td>11</td>
+									<td>48</td>
+									<td>1</td>
+									<td>-</td>
+									<td>160</td>
+									<td>39.4%</td>
+								</tr>
+								<tr>
+									<td>국제무역학과</td>
+									<td>104</td>
+									<td>11</td>
+									<td>48</td>
+									<td>1</td>
+									<td>-</td>
+									<td>160</td>
+									<td>39.4%</td>
+								</tr>
+								<tr>
+									<td>응용통계학과</td>
+									<td>104</td>
+									<td>11</td>
+									<td>48</td>
+									<td>1</td>
+									<td>-</td>
+									<td>160</td>
+									<td>39.4%</td>
+								</tr>
+								<tr>
+									<td>소비자정보학전공(폐과)</td>
+									<td>104</td>
+									<td>11</td>
+									<td>48</td>
+									<td>1</td>
+									<td>-</td>
+									<td>160</td>
+									<td>39.4%</td>
+								</tr>
+								<!-- /상경대학 -->
+								<!-- 경영대학 -->
+								<tr>
+									<td rowspan="2" class="college">경영<br>대학</td>
+									<td class="major">경영학과</td>
+									<td>104</td>
+									<td>11</td>
+									<td>48</td>
+									<td>1</td>
+									<td>-</td>
+									<td>160</td>
+									<td>39.4%</td>
+								</tr>
+								<tr>
+									<td>기술경영학과</td>
+									<td>104</td>
+									<td>11</td>
+									<td>48</td>
+									<td>1</td>
+									<td>-</td>
+									<td>160</td>
+									<td>39.4%</td>
+								</tr>
+								<!-- /경영대학 -->
+								<!-- 동물생명과학대학 -->
+								<tr>
+									<td rowspan="4" class="college">동물<br>생명<br>과학<br>대학</td>
+									<td class="major">줄기세포재생생물학과</td>
+									<td>104</td>
+									<td>11</td>
+									<td>48</td>
+									<td>1</td>
+									<td>-</td>
+									<td>160</td>
+									<td>39.4%</td>
+								</tr>
+								<tr>
+									<td>축산식품공학과</td>
+									<td>104</td>
+									<td>11</td>
+									<td>48</td>
+									<td>1</td>
+									<td>-</td>
+									<td>160</td>
+									<td>39.4%</td>
+								</tr>
+								<tr>
+									<td>동물자원과학과</td>
+									<td>104</td>
+									<td>11</td>
+									<td>48</td>
+									<td>1</td>
+									<td>-</td>
+									<td>160</td>
+									<td>39.4%</td>
+								</tr>
+								<tr>
+									<td>바이오산업공학과</td>
+									<td>104</td>
+									<td>11</td>
+									<td>48</td>
+									<td>1</td>
+									<td>-</td>
+									<td>160</td>
+									<td>39.4%</td>
+								</tr>
+								<!-- /동물생명과학대학 -->
+								<!-- 생명환경과학대학 -->
+								<tr>
+									<td rowspan="5" class="college">생명<br>환경<br>과학<br>대학</td>
+									<td class="major">응용생물과학과</td>
+									<td>104</td>
+									<td>11</td>
+									<td>48</td>
+									<td>1</td>
+									<td>-</td>
+									<td>160</td>
+									<td>39.4%</td>
+								</tr>
+								<tr>
+									<td>생명자원식품공학과</td>
+									<td>104</td>
+									<td>11</td>
+									<td>48</td>
+									<td>1</td>
+									<td>-</td>
+									<td>160</td>
+									<td>39.4%</td>
+								</tr>
+								<tr>
+									<td>사회환경플랜트공학과</td>
+									<td>104</td>
+									<td>11</td>
+									<td>48</td>
+									<td>1</td>
+									<td>-</td>
+									<td>160</td>
+									<td>39.4%</td>
+								</tr>
+								<tr>
+									<td>보건환경과학과</td>
+									<td>104</td>
+									<td>11</td>
+									<td>48</td>
+									<td>1</td>
+									<td>-</td>
+									<td>160</td>
+									<td>39.4%</td>
+								</tr>
+								<tr>
+									<td>녹지환경계획학과</td>
+									<td>104</td>
+									<td>11</td>
+									<td>48</td>
+									<td>1</td>
+									<td>-</td>
+									<td>160</td>
+									<td>39.4%</td>
+								</tr>
+								<!-- /생명환경과학대학 -->
+								<!-- 생명특성화대학 -->
+								<tr>
+									<td rowspan="3" class="college">생명<br>특성화<br>대학</td>
+									<td class="major">생명과학특성학과</td>
+									<td>104</td>
+									<td>11</td>
+									<td>48</td>
+									<td>1</td>
+									<td>-</td>
+									<td>160</td>
+									<td>39.4%</td>
+								</tr>
+								<tr>
+									<td>시스템생명특성학과</td>
+									<td>104</td>
+									<td>11</td>
+									<td>48</td>
+									<td>1</td>
+									<td>-</td>
+									<td>160</td>
+									<td>39.4%</td>
+								</tr>
+								<tr>
+									<td>융합생명특성학과</td>
+									<td>104</td>
+									<td>11</td>
+									<td>48</td>
+									<td>1</td>
+									<td>-</td>
+									<td>160</td>
+									<td>39.4%</td>
+								</tr>
+								<!-- /생명특성화대학 -->
+								<!-- 수의과대학 -->
+								<tr>
+									<td class="college">수의과<br>대학</td>
+									<td class="major">수의학과</td>
+									<td>104</td>
+									<td>11</td>
+									<td>48</td>
+									<td>1</td>
+									<td>-</td>
+									<td>160</td>
+									<td>39.4%</td>
+								</tr>
+								<!-- /수의과대학 -->
+								<!-- 예술디자인대학 -->
+								<tr>
+									<td rowspan="6" class="college">예술<br>디자인<br>대학</td>
+									<td class="major">커뮤니케이션디자인학과</td>
+									<td>104</td>
+									<td>11</td>
+									<td>48</td>
+									<td>1</td>
+									<td>-</td>
+									<td>160</td>
+									<td>39.4%</td>
+								</tr>
+								<tr>
+									<td>산업디자인학과</td>
+									<td>104</td>
+									<td>11</td>
+									<td>48</td>
+									<td>1</td>
+									<td>-</td>
+									<td>160</td>
+									<td>39.4%</td>
+								</tr>
+								<tr>
+									<td>의상디자인학과</td>
+									<td>104</td>
+									<td>11</td>
+									<td>48</td>
+									<td>1</td>
+									<td>-</td>
+									<td>160</td>
+									<td>39.4%</td>
+								</tr>
+								<tr>
+									<td>리빙디자인학과</td>
+									<td>104</td>
+									<td>11</td>
+									<td>48</td>
+									<td>1</td>
+									<td>-</td>
+									<td>160</td>
+									<td>39.4%</td>
+								</tr>
+								<tr>
+									<td>현대미술학과</td>
+									<td>104</td>
+									<td>11</td>
+									<td>48</td>
+									<td>1</td>
+									<td>-</td>
+									<td>160</td>
+									<td>39.4%</td>
+								</tr>
+								<tr>
+									<td>영화·애니메이션학과</td>
+									<td>104</td>
+									<td>11</td>
+									<td>48</td>
+									<td>1</td>
+									<td>-</td>
+									<td>160</td>
+									<td>39.4%</td>
+								</tr>
+								<!-- /예술디자인대학 -->
+								<!-- 사범대학 -->
+								<tr>
+									<td rowspan="6" class="college">사범<br>대학</td>
+									<td class="major">일어교육과</td>
+									<td>104</td>
+									<td>11</td>
+									<td>48</td>
+									<td>1</td>
+									<td>-</td>
+									<td>160</td>
+									<td>39.4%</td>
+								</tr>
+								<tr>
+									<td>수학교육과</td>
+									<td>104</td>
+									<td>11</td>
+									<td>48</td>
+									<td>1</td>
+									<td>-</td>
+									<td>160</td>
+									<td>39.4%</td>
+								</tr>
+								<tr>
+									<td>체육교육과</td>
+									<td>104</td>
+									<td>11</td>
+									<td>48</td>
+									<td>1</td>
+									<td>-</td>
+									<td>160</td>
+									<td>39.4%</td>
+								</tr>
+								<tr>
+									<td>음악교육과</td>
+									<td>104</td>
+									<td>11</td>
+									<td>48</td>
+									<td>1</td>
+									<td>-</td>
+									<td>160</td>
+									<td>39.4%</td>
+								</tr>
+								<tr>
+									<td>교육공학과</td>
+									<td>104</td>
+									<td>11</td>
+									<td>48</td>
+									<td>1</td>
+									<td>-</td>
+									<td>160</td>
+									<td>39.4%</td>
+								</tr>
+								<tr>
+									<td>영어교육과</td>
+									<td>104</td>
+									<td>11</td>
+									<td>48</td>
+									<td>1</td>
+									<td>-</td>
+									<td>160</td>
+									<td>39.4%</td>
+								</tr>
+								<!-- /사범대학 -->
+								<!-- 글로벌융합대학 -->
+								<tr>
+									<td rowspan="3" class="college">글로벌<br>융합<br>대학</td>
+									<td class="major">융합인재학부</td>
+									<td>104</td>
+									<td>11</td>
+									<td>48</td>
+									<td>1</td>
+									<td>-</td>
+									<td>160</td>
+									<td>39.4%</td>
+								</tr>
+								<tr>
+									<td>글로벌비즈니스학부</td>
+									<td>104</td>
+									<td>11</td>
+									<td>48</td>
+									<td>1</td>
+									<td>-</td>
+									<td>160</td>
+									<td>39.4%</td>
+								</tr>
+								<tr>
+									<td>신산업융합학과</td>
+									<td>104</td>
+									<td>11</td>
+									<td>48</td>
+									<td>1</td>
+									<td>-</td>
+									<td>160</td>
+									<td>39.4%</td>
+								</tr>
+								<!-- /글로벌융합대학 -->
+							</tbody>
+						</table>
+						<div class="btn_wrap">
+							<button type="button" class="save_excel">엑셀로 저장</button>
+						</div>
+						<!-- /검색결과 있을 경우 -->
+					</div>
+				</div>
+				<!-- /검색결과 -->
+			</div>
+			<!-- /컨텐츠 -->
+		</div>
+	</div>
+	<!-- /contents -->
+	<!-- footer -->
+	<div id="footer">
+		<dl>
+			<dt>Copyright &copy;</dt>
+			<dd>2018 Konkuk University. All Rights Reserved.</dd>
+		</dl>
+	</div>
+	<!-- /footer -->
+</body>
+</html>

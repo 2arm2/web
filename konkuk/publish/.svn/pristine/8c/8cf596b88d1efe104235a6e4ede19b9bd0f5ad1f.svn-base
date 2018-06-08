@@ -1,0 +1,279 @@
+<!DOCTYPE HTML>
+<html lang="ko">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,target-densitydpi=medium-dpi">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta property="og:title" content="건국대학교 졸업생 취업진로현황 분석시스템">
+	<meta property="og:site_name" content="건국대학교 졸업생 취업진로현황 분석시스템">
+	<meta property="og:type" content="website">
+	<meta property="og:url" content="http://kustat.njob.co.kr">
+	<meta property="og:image" content="images/common/og_image.png">
+	<meta property="og:image:width" content="400">
+	<meta property="og:image:height" content="210">
+	<meta property="og:description" content="건국대학교 졸업생 취업진로현황 분석시스템">
+	<meta name="description" content="건국대학교 졸업생 취업진로현황 분석시스템">
+	<title>건국대학교 졸업생 취업진로현황 분석시스템</title>
+	<link rel="canonical" href="http://kustat.njob.co.kr">
+	<link rel="shortcut icon" href="images/common/favicon.ico">
+	<link rel="apple-touch-icon-precomposed" href="images/favicon/favicon.png">
+	<link rel="stylesheet" href="lib/css/common.css">
+	<script type="text/javascript" src="lib/js/jquery-1.11.0.min.js"></script>
+	<script type="text/javascript" src="lib/js/common.js"></script>
+</head>
+<body>
+	<!-- header -->
+	<div id="header">
+		<div class="header clearfix">
+			<h1><a href="/">건국대학교 졸업생 취업진로현황 분석시스템</a></h1>
+			<ul class="clearfix">
+				<li><h2><a href="employment_rate01.html">본교 취업률 전체 현황</a></h2></li>
+				<li><h2><a href="analysis01_1.html">본교 취업률 항목별 분석</a></h2></li>
+				<li><h2><a href="rival01.html">경쟁대학 취업률 비교 분석</a></h2></li>
+				<li><h2><a href="company_classification01.html">입사기업 기준 취업현황 분석</a></h2></li>
+			</ul>
+		</div>
+		<div class="admin_data_input">
+			<h2><a href="employment_statistics.html">취업통계조사</a></h2>
+		</div>
+		<div class="top">
+			<a href="admin.html">슈퍼관리자(super_admin)</a>
+			<button type="button">로그아웃</button>
+		</div>
+	</div>
+	<!-- /header -->
+	<!-- contents -->
+	<div id="contents">
+		<div class="title"><h2>Admin</h2></div>
+		<div class="contents_wrap clearfix">
+			<!-- 플로팅 메뉴 -->
+			<div class="navi">
+				<h2>Admin</h2>
+				<ul>
+					<!-- 슈퍼관리자만 보이게 -->
+					<li><h3><a href="admin_rights_setting.html">관리자 권한 설정</a></h3></li>
+					<!-- /슈퍼관리자만 보이게 -->
+					<!-- 일반관리자만 보이게 -->
+					<li><h3><a href="admin_rights_view.html">내 권한 보기</a></h3></li>
+					<!-- /일반관리자만 보이게 -->
+					<li class="on"><h3><a href="vouchers_check.html">창작활동 증빙자료 제출여부 확인</a></h3>
+					<!-- 슈퍼관리자만 보이게 -->
+					<li><h3><a href="code_management.html">코드 관리</a></h3></li>
+					<li><h3><a href="file_upload.html">취업통계자료 업로드</a></h3></li>
+					<li><h3><a href="file_download.html">취업통계자료 다운로드</a></h3></li>
+					<li><h3><a href="employment_statistics_modify.html">취업통계조사 조회 및 수정</a></h3></li>
+					<!-- /슈퍼관리자만 보이게 -->
+				</ul>
+			</div>
+			<!-- /플로팅 메뉴 -->
+			<!-- 컨텐츠 -->
+			<div class="contents">
+				<div class="contents_title"><h3>창작활동 증빙자료 제출여부 확인</h3></div>
+				<!-- 검색조건 -->
+				<div class="search_condition_wrap">
+					<h4>검색조건</h4>
+					<div class="search_condition">
+						<form action="">
+							<dl class="clearfix">
+								<dt><label for="selectYear">기간</label></dt>
+								<dd class="select_date">
+									<div class="select_box">
+										<p>선택</p>
+										<select name="selectYear" id="selectYear">
+											<option value="">선택</option>
+											<option value="">2017</option>
+											<option value="">2016</option>
+										</select>
+									</div>
+									<span>년 고등교육기관 졸업자 취업통계조사</span>
+								</dd>
+							</dl>
+							<dl class="clearfix">
+								<dt><label for="selectCollege">대학</label></dt>
+								<dd>
+									<div class="select_box">
+										<p>전체</p>
+										<select name="selectCollege" id="selectCollege">
+											<option value="">전체</option>
+										</select>
+									</div>
+								</dd>
+								<dt><label for="selectMajor">학부(과)</label></dt>
+								<dd>
+									<div class="select_box">
+										<p>전체</p>
+										<select name="selectMajor" id="selectMajor">
+											<option value="">전체</option>
+										</select>
+									</div>
+								</dd>
+							</dl>
+							<dl class="clearfix">
+								<dt><label for="creativeActivityType">실적유형</label></dt>
+								<dd>
+									<div class="select_box">
+										<p>전체</p>
+										<select name="creativeActivityType" id="creativeActivityType">
+											<option value="">전체</option>
+											<option value="">공연</option>
+											<option value="">전시</option>
+											<option value="">출판 및 출반</option>
+											<option value="">영상제작물</option>
+											<option value="">저작권을 통한 수익창출</option>
+										</select>
+									</div>
+								</dd>
+								<dt><label for="submissionStatus">제출여부</label></dt>
+								<dd>
+									<div class="select_box">
+										<p>미제출</p>
+										<select name="submissionStatus" id="submissionStatus">
+											<option value="">전체</option>
+											<option value="" selected="selected">미제출</option>
+											<option value="">제출</option>
+										</select>
+									</div>
+								</dd>
+							</dl>
+							<div class="btn_wrap">
+								<button type="button" class="btn_reset">초기화</button>
+								<button type="button" class="btn_search">검색</button>
+							</div>
+						</form>
+					</div>
+				</div>
+				<!-- /검색조건 -->
+				<!-- 검색결과 -->
+				<div class="search_result_wrap">
+					<h4>검색결과</h4>
+					<div class="search_result admin_result">
+						<!-- 검색결과 없을 경우, 기본 화면 -->
+						<p>검색 결과가 없습니다.</p>
+						<!-- /검색결과 없을 경우 -->
+						<!-- 검색결과 있을 경우 -->
+						<table class="vouchers_check">
+							<caption class="hidden">검색조건에 따른 창작활동 증빙자료 제출여부 확인표</caption>
+							<thead>
+								<tr>
+									<th scope="col">대학<br>(학과명)</th>
+									<th scope="col">학번</th>
+									<th scope="col">성명</th>
+									<th scope="col">연락처</th>
+									<th scope="col">실적유형</th>
+									<th scope="col">제출여부</th>
+									<th scope="col">미제출자료</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>문과대학<br>(미디어커뮤니케이션학과)</td>
+									<td>200800201</td>
+									<td>김지수</td>
+									<td>010-0000-0000</td>
+									<td>공연</td>
+									<td><span class="unsubmission">미제출</span></td>
+									<td><button type="button" class="btn_application">확인</button></td>
+								</tr>
+								<tr class="unsubmission_detail off">
+									<td colspan="7">
+										<dl>
+											<dt>미제출자료 &#10550;<br>(학과담당자 확인용, 증빙자료는 반드시 취업통계 담당자에게 직접 제출 요망)</dt>
+											<dd>공연장 등록증 또는 공연장 사업등록증</dd>
+											<dd>공연장에서 발급한 공연확인서</dd>
+											<dd>졸업자와 공연장 또는 공연기획사와의 계약서</dd>
+											<dd>펨플릿 또는 해당 공연 관련 책자</dd>
+										</dl>
+									</td>
+								</tr>
+								<tr>
+									<td>정보통신대학<br>(컴퓨터공학과)</td>
+									<td>200800201</td>
+									<td>김지수</td>
+									<td>010-0000-0000</td>
+									<td>전시</td>
+									<td>제출</td>
+									<td>-</td>
+								</tr>
+								<tr>
+									<td>정보통신대학<br>(컴퓨터공학과)</td>
+									<td>200800201</td>
+									<td>김지수</td>
+									<td>010-0000-0000</td>
+									<td>출판 및 출반</td>
+									<td><span class="unsubmission">미제출</span></td>
+									<td><button type="button" class="btn_application">확인</button></td>
+								</tr>
+								<tr class="unsubmission_detail off">
+									<td colspan="7">
+										<dl>
+											<dt>미제출자료 &#10550;<br>(학과담당자 확인용, 증빙자료는 반드시 취업통계 담당자에게 직접 제출 요망)</dt>
+											<dd>출판사 사업자 등록증</dd>
+										</dl>
+									</td>
+								</tr>
+								<tr>
+									<td>문과대학<br>(미디어커뮤니케이션학과)</td>
+									<td>200800201</td>
+									<td>김지수</td>
+									<td>010-0000-0000</td>
+									<td>저작권을 통한 수익창출</td>
+									<td><span class="unsubmission">미제출</span></td>
+									<td><button type="button" class="btn_application">확인</button></td>
+								</tr>
+								<tr class="unsubmission_detail off">
+									<td colspan="7">
+										<dl>
+											<dt>미제출자료 &#10550;<br>(학과담당자 확인용, 증빙자료는 반드시 취업통계 담당자에게 직접 제출 요망)</dt>
+											<dd>신탁기관과의 신탁체결서</dd>
+											<dd>저작권을 통한 수입증명서</dd>
+										</dl>
+									</td>
+								</tr>
+								<tr>
+									<td>정보통신대학<br>(컴퓨터공학과)</td>
+									<td>200800201</td>
+									<td>김지수</td>
+									<td>010-0000-0000</td>
+									<td>영상제작물</td>
+									<td><span class="unsubmission">미제출</span></td>
+									<td><button type="button" class="btn_application">확인</button></td>
+								</tr>
+								<tr class="unsubmission_detail off">
+									<td colspan="7">
+										<dl>
+											<dt>미제출자료 &#10550;<br>(학과담당자 확인용, 증빙자료는 반드시 취업통계 담당자에게 직접 제출 요망)</dt>
+											<dd>영상제작기관과의 계약서(영상물, 시나리오 등의 내용이 확인 가능해야 함)</dd>
+										</dl>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+						<!-- /검색결과 있을 경우 -->
+						<div class="btn_wrap">
+							<button type="button" class="save_excel">엑셀로 저장</button>
+							<button type="button" class="btn_print" onclick="javascript:tableDataPrint();">출력하기</button>
+						</div>
+						<!-- /검색결과 있을 경우 -->
+					</div>
+				</div>
+				<!-- /검색결과 -->
+			</div>
+			<!-- /컨텐츠 -->
+		</div>
+	</div>
+	<!-- /contents -->
+	<!-- footer -->
+	<div id="footer">
+		<dl>
+			<dt>Copyright &copy;</dt>
+			<dd>2018 Konkuk University. All Rights Reserved.</dd>
+		</dl>
+	</div>
+	<!-- /footer -->
+	<script type="text/javascript">
+    function tableDataPrint() {
+        window.print();
+    }
+	</script>
+</body>
+</html>
