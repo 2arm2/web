@@ -1,0 +1,43 @@
+<!DOCTYPE HTML>
+<html lang="ko">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,target-densitydpi=medium-dpi">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta property="og:title" content="건국대학교 졸업생 취업진로현황 분석시스템">
+	<meta property="og:site_name" content="건국대학교 졸업생 취업진로현황 분석시스템">
+	<meta property="og:type" content="website">
+	<meta property="og:url" content="">
+	<meta property="og:image" content="images/common/og_image.png">
+	<meta property="og:image:width" content="400">
+	<meta property="og:image:height" content="210">
+	<meta property="og:description" content="건국대학교 졸업생 취업진로현황 분석시스템">
+	<meta name="description" content="건국대학교 졸업생 취업진로현황 분석시스템">
+	<title>건국대학교 졸업생 취업진로현황 분석시스템</title>
+	<link rel="canonical" href="http://www.">
+	<link rel="shortcut icon" href="images/common/favicon.ico">
+	<link rel="apple-touch-icon-precomposed" href="images/common/favicon.png">
+	<link rel="stylesheet" href="lib/css/common.css">
+	<script type="text/javascript" src="lib/js/jquery-1.11.0.min.js"></script>
+	<script type="text/javascript" src="lib/js/common.js"></script>
+</head>
+<body>
+	<div class="error_page_wrap">
+		<div class="error_page">
+			<h1>죄송합니다.<br>요청하신 페이지를 찾을 수 없습니다.</h1>
+			<p>찾으시려는 페이지의 주소가 잘못 입력되었거나, 현재 사용할 수 없습니다.</p>
+			<p>입력하신 페이지 주소가 정확한지 다시 한번 확인해주시기 바랍니다.</p>
+			<div class="link_wrap">
+				<a href="">이전 페이지로 이동</a>
+				<a href="/" class="go_home">홈으로 이동</a>
+			</div>
+		</div>
+		<div class="footer">
+			<dl>
+				<dt>Copyright &copy;</dt>
+				<dd>2018 Konkuk University. All Rights Reserved.</dd>
+			</dl>
+		</div>
+	</div>
+</body>
+</html>

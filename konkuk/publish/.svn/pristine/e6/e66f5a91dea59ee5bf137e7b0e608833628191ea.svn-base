@@ -1,0 +1,50 @@
+<!DOCTYPE HTML>
+<html lang="ko">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,target-densitydpi=medium-dpi">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta property="og:title" content="건국대학교 졸업생 취업진로현황 분석시스템">
+	<meta property="og:site_name" content="건국대학교 졸업생 취업진로현황 분석시스템">
+	<meta property="og:type" content="website">
+	<meta property="og:url" content="">
+	<meta property="og:image" content="/2018/konkuk/images/common/og_image.png">
+	<meta property="og:image:width" content="400">
+	<meta property="og:image:height" content="210">
+	<meta property="og:description" content="건국대학교 졸업생 취업진로현황 분석시스템">
+	<meta name="description" content="건국대학교 졸업생 취업진로현황 분석시스템">
+	<title>건국대학교 졸업생 취업진로현황 분석시스템</title>
+	<link rel="canonical" href="http://www.">
+	<link rel="shortcut icon" href="/2018/konkuk/images/common/favicon.ico">
+	<link rel="apple-touch-icon-precomposed" href="/2018/konkuk/images/favicon/favicon.png">
+	<link rel="stylesheet" href="lib/css/common.css">
+	<script type="text/javascript" src="lib/js/jquery-1.11.0.min.js"></script>
+	<script type="text/javascript" src="lib/js/common.js"></script>
+</head>
+<body class="bg_login">
+	<div class="login_wrap">
+		<div class="login">
+			<h1><img src="images/common/logo.gif" alt="건국대학교"></h1>
+			<h2>졸업생 취업진로현황 분석시스템</h2>
+			<h3>Administrator</h3>
+			<form action="">
+				<dl>
+					<dt><label for="loginId">ID</label></dt>
+					<dd><input type="text" id="loginId" name="loginId"></dd>
+				</dl>
+				<dl>
+					<dt><label for="loginPw">Password</label></dt>
+					<dd><input type="password" id="loginPw" name="loginPw"></dd>
+				</dl>
+				<button type="button">로그인</button>
+			</form>
+		</div>
+	</div>
+	<div class="footer">
+		<dl>
+			<dt>Copyright &copy;</dt>
+			<dd>2018 Konkuk University. All Rights Reserved.</dd>
+		</dl>
+	</div>
+</body>
+</html>

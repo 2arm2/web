@@ -1,0 +1,105 @@
+<!DOCTYPE HTML>
+<html lang="ko">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,target-densitydpi=medium-dpi">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta property="og:title" content="건국대학교 졸업생 취업진로현황 분석시스템">
+	<meta property="og:site_name" content="건국대학교 졸업생 취업진로현황 분석시스템">
+	<meta property="og:type" content="website">
+	<meta property="og:url" content="">
+	<meta property="og:image" content="/2018/konkuk/images/common/og_image.png">
+	<meta property="og:image:width" content="400">
+	<meta property="og:image:height" content="210">
+	<meta property="og:description" content="건국대학교 졸업생 취업진로현황 분석시스템">
+	<meta name="description" content="건국대학교 졸업생 취업진로현황 분석시스템">
+	<title>건국대학교 졸업생 취업진로현황 분석시스템</title>
+	<link rel="canonical" href="http://www.">
+	<link rel="shortcut icon" href="/2018/konkuk/images/common/favicon.ico">
+	<link rel="apple-touch-icon-precomposed" href="/2018/konkuk/images/favicon/favicon.png">
+	<link rel="stylesheet" href="lib/css/common.css">
+	<script type="text/javascript" src="lib/js/jquery-1.11.0.min.js"></script>
+	<script type="text/javascript" src="lib/js/Chart.min.js"></script>
+	<script type="text/javascript" src="lib/js/common.js"></script>
+</head>
+<body class="bg_popup">
+	<!-- 단과대학별 취업률 팝업 -->
+	<div class="popup_wrap">
+		<h1>건국대학교 졸업생 취업진로현황 분석시스템</h1>
+		<h2>본교 취업률 전체 현황</h2>
+		<h3>단과대학별 취업률</h3>
+		<div class="chart_wrap clearfix">
+			<div><canvas id="collegeChart"></canvas></div>
+			<div><canvas id="collegeChartPie"></canvas></div>
+		</div>
+		<div class="btn_wrap">
+			<button type="button" class="save_pdf">PDF로 저장</button>
+			<button type="button" class="btn_closed">닫기</button>
+		</div>
+	</div>
+	<!-- /단과대학별 취업률 팝업 -->
+	<!-- 학과(전공)별 취업률 팝업 -->
+	<div class="popup_wrap">
+		<h1>건국대학교 졸업생 취업진로현황 분석시스템</h1>
+		<h2>본교 취업률 전체 현황</h2>
+		<h3>학과(전공)별 취업률</h3>
+		<div class="chart_wrap clearfix">
+			<div><canvas id="majorChart"></canvas></div>
+			<div><canvas id="majorChartPie"></canvas></div>
+		</div>
+		<div class="btn_wrap">
+			<button type="button" class="save_pdf">PDF로 저장</button>
+			<button type="button" class="btn_closed">닫기</button>
+		</div>
+	</div>
+	<!-- /학과(전공)별 취업률 팝업 -->
+	<!-- 남녀 취업률 비교 팝업 -->
+	<div class="popup_wrap">
+		<h1>건국대학교 졸업생 취업진로현황 분석시스템</h1>
+		<h2>본교 취업률 항목별 분석</h2>
+		<h3>남녀 취업률 비교</h3>
+		<canvas id="genderChart"></canvas>
+		<div class="chart_wrap clearfix">
+			<div><canvas id="manChartPie"></canvas></div>
+			<div><canvas id="womanChartPie"></canvas></div>
+		</div>
+		<div class="btn_wrap">
+			<button type="button" class="save_pdf">PDF로 저장</button>
+			<button type="button" class="btn_closed">닫기</button>
+		</div>
+	</div>
+	<!-- /남녀 취업률 비교 팝업 -->
+	<!-- 남자 출생년도별 취업률 비교 팝업 -->
+	<div class="popup_wrap">
+		<h1>건국대학교 졸업생 취업진로현황 분석시스템</h1>
+		<h2>본교 취업률 항목별 분석</h2>
+		<h3>남자 출생년도별 취업률 비교</h3>
+		<div class="chart_wrap clearfix">
+			<div><canvas id="yearOfBirthManChart"></canvas></div>
+			<div><canvas id="yearOfBirthManChartPie"></canvas></div>
+		</div>
+		<canvas id="manWomanChartLine"></canvas>
+		<div class="btn_wrap">
+			<button type="button" class="save_pdf">PDF로 저장</button>
+			<button type="button" class="btn_closed">닫기</button>
+		</div>
+	</div>
+	<!-- /남자 출생년도별 취업률 비교 팝업 -->
+	<!-- 여자 출생년도별 취업률 비교 팝업 -->
+	<div class="popup_wrap">
+		<h1>건국대학교 졸업생 취업진로현황 분석시스템</h1>
+		<h2>본교 취업률 항목별 분석</h2>
+		<h3>여자 출생년도별 취업률 비교</h3>
+		<div class="chart_wrap clearfix">
+			<div><canvas id="yearOfBirthWomanChart"></canvas></div>
+			<div><canvas id="yearOfBirthWomanChartPie"></canvas></div>
+		</div>
+		<canvas id="manWomanChartLine"></canvas>
+		<div class="btn_wrap">
+			<button type="button" class="save_pdf">PDF로 저장</button>
+			<button type="button" class="btn_closed">닫기</button>
+		</div>
+	</div>
+	<!-- /여자 출생년도별 취업률 비교 팝업 -->
+</body>
+</html>

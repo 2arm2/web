@@ -1,0 +1,351 @@
+<!DOCTYPE HTML>
+<html lang="ko">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,target-densitydpi=medium-dpi">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta property="og:title" content="건국대학교 졸업생 취업진로현황 분석시스템">
+	<meta property="og:site_name" content="건국대학교 졸업생 취업진로현황 분석시스템">
+	<meta property="og:type" content="website">
+	<meta property="og:url" content="http://kustat.njob.co.kr">
+	<meta property="og:image" content="images/common/og_image.png">
+	<meta property="og:image:width" content="400">
+	<meta property="og:image:height" content="210">
+	<meta property="og:description" content="건국대학교 졸업생 취업진로현황 분석시스템">
+	<meta name="description" content="건국대학교 졸업생 취업진로현황 분석시스템">
+	<title>건국대학교 졸업생 취업진로현황 분석시스템</title>
+	<link rel="canonical" href="http://kustat.njob.co.kr">
+	<link rel="shortcut icon" href="images/common/favicon.ico">
+	<link rel="apple-touch-icon-precomposed" href="images/favicon/favicon.png">
+	<link rel="stylesheet" href="lib/css/common.css">
+	<script type="text/javascript" src="lib/js/jquery-1.11.0.min.js"></script>
+	<script type="text/javascript" src="lib/js/common.js"></script>
+</head>
+<body>
+	<!-- header -->
+	<div id="header">
+		<div class="header clearfix">
+			<h1><a href="/">건국대학교 졸업생 취업진로현황 분석시스템</a></h1>
+			<ul class="clearfix">
+				<li><h2><a href="employment_rate01.html">본교 취업률 전체 현황</a></h2></li>
+				<li><h2><a href="analysis01_1.html">본교 취업률 항목별 분석</a></h2></li>
+				<li><h2><a href="rival01.html">경쟁대학 취업률 비교 분석</a></h2></li>
+				<li><h2><a href="company_classification.html">입사기업 기준 취업현황 분석</a></h2></li>
+			</ul>
+		</div>
+		<div class="admin_data_input">
+			<h2><a href="employment_statistics.html">취업통계조사</a></h2>
+		</div>
+		<div class="top">
+			<a href="admin.html">슈퍼관리자(super_admin)</a>
+			<button type="button">로그아웃</button>
+		</div>
+	</div>
+	<!-- /header -->
+	<!-- contents -->
+	<div id="contents">
+		<div class="title"><h2>Admin</h2></div>
+		<div class="contents_wrap clearfix">
+			<!-- 플로팅 메뉴 -->
+			<div class="navi">
+				<h2>Admin</h2>
+				<ul>
+					<!-- 슈퍼관리자만 보이게 -->
+					<li><h3><a href="admin_rights_setting.html">관리자 권한 설정</a></h3></li>
+					<!-- /슈퍼관리자만 보이게 -->
+					<!-- 일반관리자만 보이게 -->
+					<li><h3><a href="admin_rights_view.html">권한 보기</a></h3></li>
+					<!-- /일반관리자만 보이게 -->
+					<li><h3><a href="vouchers_check.html">창작활동 증빙자료 제출여부 확인</a></h3>
+					<!-- 슈퍼관리자만 보이게 -->
+					<li class="on"><h3><a href="jacascript:void(0);">코드 관리</a></h3>
+						<ul class="sub">
+							<li><h4><a href="code_vouchers.html">&#8226; 증빙자료 관리</a></h4></li>
+							<li class="on"><h4><a href="code_certificate.html">&#8226; 국가자격증 관리</a></h4></li>
+							<li><h4><a href="code_employment_classification.html">&#8226; [KEDI] 취업구분코드 관리</a></h4></li>
+							<li><h4><a href="code_school.html">&#8226; [KEDI] 진학학교코드 관리</a></h4></li>
+							<li><h4><a href="code_nation.html">&#8226; [KEDI] 국가코드 관리</a></h4></li>
+						</ul>
+					</li>
+					<li><h3><a href="file_upload.html">취업통계자료 업로드</a></h3></li>
+					<li><h3><a href="jacascript:void(0);">취업통계자료 다운로드</a></h3>
+						<ul class="sub">
+							<li class="on"><h4><a href="individual_download.html">&#8226; 졸업생 개인별 내역</a></h4></li>
+							<li><h4><a href="unemployed_download.html">&#8226; 졸업생 중 미취업자 명단</a></h4></li>
+							<li><h4><a href="kedi_download.html">&#8226; KEDI 업로드용</a></h4></li>
+						</ul>
+					</li>
+					<li><h3><a href="">취업통계조사 조회 및 수정</a></h3></li>
+					<!-- /슈퍼관리자만 보이게 -->
+				</ul>
+			</div>
+			<!-- /플로팅 메뉴 -->
+			<!-- 컨텐츠 -->
+			<div class="contents">
+				<div class="contents_title"><h4>국가자격증 관리</h4></div>
+				<!-- 검색조건 -->
+				<div class="search_condition_wrap">
+					<h5>자격증 검색 및 추가</h5>
+					<div class="search_condition code_wrap">
+						<form action="">
+							<dl>
+								<dt><label for="certificateName">자격증명</label></dt>
+								<dd><input type="text" id="certificateName" name="certificateName"></dd>
+							</dl>
+							<div class="btn_wrap">
+								<button type="button" class="btn_search" id="searchCertificate">검색</button>
+								<button type="submit" class="btn_submit">추가</button>
+							</div>
+						</form>
+					</div>
+				</div>
+				<!-- /검색조건 -->
+				<!-- 검색결과 -->
+				<div class="search_result_wrap">
+					<h5>자격증 목록</h5>
+					<div class="search_result code_certificate">
+						<ol>
+							<li>
+								<h6>ㄱ.</h6>
+								<ul class="clearfix">
+									<li>건설기계기술사</li>
+									<li>건축기사</li>
+									<li>교통기술사</li>
+									<li>금속가공기술사</li>
+									<li>금형기능사</li>
+									<li>기계설계기사</li>
+								</ul>
+							</li>
+							<li>
+								<h6>ㄴ.</h6>
+								<ul class="clearfix">
+									<li>농산물품질관리사</li>
+								</ul>
+							</li>
+							<li>
+								<h6>ㄷ.</h6>
+								<ul class="clearfix">
+									<li>도로교통사고감정사</li>
+								</ul>
+							</li>
+							<li>
+								<h6>ㄹ.</h6>
+								<ul class="clearfix">
+									<li>리눅스마스터</li>
+								</ul>
+							</li>
+							<li>
+								<h6>ㅁ.</h6>
+								<ul class="clearfix">
+									<li>미용사(네일)</li>
+								</ul>
+							</li>
+							<li>
+								<h6>ㅂ.</h6>
+								<ul class="clearfix">
+									<li>배관기능사</li>
+									<li>보석감정사</li>
+								</ul>
+							</li>
+							<li>
+								<h6>ㅅ.</h6>
+								<ul class="clearfix">
+									<li>사진기능사</li>
+								</ul>
+							</li>
+							<li>
+								<h6>ㅇ.</h6>
+								<ul class="clearfix">
+									<li>에너지관리산업기사</li>
+								</ul>
+							</li>
+							<li>
+								<h6>ㅈ.</h6>
+								<ul class="clearfix">
+									<li>전기산업기사</li>
+								</ul>
+							</li>
+							<li>
+								<h6>ㅊ.</h6>
+								<ul class="clearfix">
+									<li>치과위생사</li>
+								</ul>
+							</li>
+							<li>
+								<h6>ㅋ.</h6>
+								<ul class="clearfix">
+									<li>컴퓨터운용사</li>
+								</ul>
+							</li>
+							<li>
+								<h6>ㅌ.</h6>
+								<ul class="clearfix">
+									<li>통신사</li>
+								</ul>
+							</li>
+							<li>
+								<h6>ㅍ.</h6>
+								<ul class="clearfix">
+									<li>평생교육사</li>
+								</ul>
+							</li>
+							<li>
+								<h6>ㅎ.</h6>
+								<ul class="clearfix">
+									<li>한의사</li>
+								</ul>
+							</li>
+							<li>
+								<h6>A.</h6>
+							</li>
+							<li>
+								<h6>B.</h6>
+							</li>
+							<li>
+								<h6>C.</h6>
+							</li>
+							<li>
+								<h6>D.</h6>
+							</li>
+							<li>
+								<h6>E.</h6>
+							</li>
+							<li>
+								<h6>F.</h6>
+								<ul class="clearfix">
+									<li>FLEX</li>
+								</ul>
+							</li>
+							<li>
+								<h6>G.</h6>
+								<ul class="clearfix">
+									<li>GTQ</li>
+								</ul>
+							</li>
+							<li>
+								<h6>H.</h6>
+							</li>
+							<li>
+								<h6>I.</h6>
+							</li>
+							<li>
+								<h6>J.</h6>
+							</li>
+							<li>
+								<h6>K.</h6>
+							</li>
+							<li>
+								<h6>L.</h6>
+							</li>
+							<li>
+								<h6>M.</h6>
+							</li>
+							<li>
+								<h6>N.</h6>
+							</li>
+							<li>
+								<h6>O.</h6>
+							</li>
+							<li>
+								<h6>P.</h6>
+							</li>
+							<li>
+								<h6>Q.</h6>
+							</li>
+							<li>
+								<h6>R.</h6>
+							</li>
+							<li>
+								<h6>S.</h6>
+							</li>
+							<li>
+								<h6>T.</h6>
+								<ul class="clearfix">
+									<li>TEPS</li>
+								</ul>
+							</li>
+							<li>
+								<h6>U.</h6>
+							</li>
+							<li>
+								<h6>V.</h6>
+							</li>
+							<li>
+								<h6>W.</h6>
+							</li>
+							<li>
+								<h6>X.</h6>
+							</li>
+							<li>
+								<h6>Y.</h6>
+							</li>
+							<li>
+								<h6>Z.</h6>
+							</li>
+						</ol>
+					</div>
+				</div>
+				<!-- /검색결과 -->
+			</div>
+			<!-- /컨텐츠 -->
+		</div>
+	</div>
+	<!-- /contents -->
+	<!-- footer -->
+	<div id="footer">
+		<dl>
+			<dt>Copyright &copy;</dt>
+			<dd>2018 Konkuk University. All Rights Reserved.</dd>
+		</dl>
+	</div>
+	<!-- /footer -->
+<script type="text/javascript">
+function searchAndHighlight(searchTerm, selector, highlightClass, removePreviousHighlights) {
+    if(searchTerm) {
+        //var wholeWordOnly = new RegExp("\\g"+searchTerm+"\\g","ig"); //matches whole word only
+        //var anyCharacter = new RegExp("\\g["+searchTerm+"]\\g","ig"); //matches any word with any of search chars characters
+        var selector = selector || "body",                             //use body as selector if none provided
+            searchTermRegEx = new RegExp("("+searchTerm+")","gi"),
+            matches = 0,
+            helper = {};
+        helper.doHighlight = function(node, searchTerm){
+            if(node.nodeType === 3) {
+                if(node.nodeValue.match(searchTermRegEx)){
+                    matches++;
+                    var tempNode = document.createElement('span');
+                    tempNode.innerHTML = node.nodeValue.replace(searchTermRegEx, "<span class='"+highlightClass+"'>$1</span>");
+                    node.parentNode.replaceChild(tempNode, node);
+                }
+            }
+            else if(node.nodeType === 1 && node.childNodes && !/(style|script)/i.test(node.tagName)) {
+                $.each(node.childNodes, function(i,v){
+                    helper.doHighlight(node.childNodes[i], searchTerm);
+                });
+            }
+        };
+        if(removePreviousHighlights) {
+            $('.'+highlightClass).each(function(i,v){
+                var $parent = $(this).parent();
+                $(this).contents().unwrap();
+                $parent.get(0).normalize();
+            });
+        }
+        $.each($(selector).children(), function(index,val){
+            helper.doHighlight(this, searchTerm);
+        });
+		$(window).scrollTop($('.highlighted:first').position().top - 80);
+        return matches;
+    }
+	return false;
+}
+
+$(document).ready(function() {
+    $('#searchCertificate').on("click",function() {
+        if(!searchAndHighlight($('#certificateName').val(), '.code_certificate', 'highlighted', true)) {
+            alert("검색 결과가 없습니다.");
+        }
+    });
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,619 @@
+$(document).ready(function() {
+
+	//메뉴 클릭 이벤트
+	$('.navi').find('> ul > li').on('click', function() {
+		$(this).find('.sub').stop().slideToggle('fast', function() {
+			$(this).parents('li').toggleClass('on', $(this).is(':visible'));
+			$(this).parents('li').siblings().removeClass('on').find('.sub').hide();
+			return false;
+		});
+	});
+
+	//셀렉트박스 이벤트
+	var selectTarget = $('.select_box select');
+	selectTarget.on('focus', function() {
+		$(this).parent().addClass('focus');
+	});
+	selectTarget.on('blur', function() {
+		$(this).parent().removeClass('focus');
+	});
+	selectTarget.change(function() {
+		var select_name = $(this).children('option:selected').text();
+		$(this).siblings('p').text(select_name);
+	});
+
+	//검색결과 표 클릭 이벤트
+	$('.contents').find('.search_result tbody tr').on('click', function() {
+		window.open('popup.html', '_blank', 'width=1920px,height=1000px');
+		return false;
+	});
+
+	//취업현황 입력 표 클릭 이벤트
+	$('.data_input_wrap').find('.search_result tbody tr').on('click', function() {
+		window.open('employment_statistics_popup.html', '_blank', 'width=1300px,height=800px');
+		return false;
+	});
+
+	//취업현황 입력버튼 클릭 이벤트
+	$('.kustat_wrap').find('> button').on('click', function() {
+		$(this).next('.kustat_data_input').stop().slideToggle('fast');
+	});
+	
+	////////////////////////////////////////////////////////////////////////////////////////
+	////////////////////////////////////////////////////////////////////////////////////////
+	//단과대학별 취업률 차트
+	var collegeChart = document.getElementById("collegeChart");
+	var myChart = new Chart(collegeChart, {
+		type: 'bar',
+		data: {
+			labels: ["졸업자", "취업자", "진학자", "외국인유학생", "입대자", "취업불가능자", "기타"],
+			datasets: [{
+				label: '2017년 문과대학',
+				data: [324, 104, 11, 48, 1, 0, 160],
+				backgroundColor: [
+					'rgba(75, 192, 192, 0.2)',
+					'rgba(153, 102, 255, 0.2)',
+					'rgba(75, 192, 192, 0.2)',
+					'rgba(75, 192, 192, 0.2)',
+					'rgba(75, 192, 192, 0.2)',
+					'rgba(75, 192, 192, 0.2)',
+					'rgba(75, 192, 192, 0.2)'
+				],
+				borderColor: [
+					'rgba(75, 192, 192, 1)',
+					'rgba(153, 102, 255, 1)',
+					'rgba(75, 192, 192, 1)',
+					'rgba(75, 192, 192, 1)',
+					'rgba(75, 192, 192, 1)',
+					'rgba(75, 192, 192, 1)',
+					'rgba(75, 192, 192, 1)'
+				],
+				borderWidth: 1
+			}]
+		},
+		options: {
+			scales: {
+				yAxes: [{
+					ticks: {
+						beginAtZero:true
+					}
+				}]
+			}
+		}
+	});
+	var collegeChartPie = document.getElementById("collegeChartPie");
+	var myChart = new Chart(collegeChartPie, {
+		type: 'doughnut',
+		data: {
+			labels: ["취업률"],
+			datasets: [{
+				data: [39.4, 61.6],
+				backgroundColor: [
+					'rgba(153, 102, 255, 0.2)',
+					'rgba(200, 200, 200, 0.2)'
+				],
+				borderColor: [
+					'rgba(153, 102, 255, 1)',
+					'rgba(200, 200, 200, 1)'
+				],
+				borderWidth: 1
+			}]
+		},
+		options: {
+			scales: {
+				yAxes: [{
+					ticks: {
+						beginAtZero:true
+					}
+				}]
+			},
+			tooltips: {
+				callbacks: {
+					label: function(tooltipItem, data) {
+						var dataset = data.datasets[tooltipItem.datasetIndex];
+						var total = dataset.data.reduce(function(previousValue, currentValue, currentIndex, array) {
+							return previousValue + currentValue;
+						});
+					    var currentValue = dataset.data[tooltipItem.index];
+					    var precentage = Math.floor(((currentValue/total) * 100)+0.5).toFixed(1);
+					    return precentage + "%";
+					}
+				}
+			}
+		}
+	});
+
+	//학과(전공)별 취업률 차트
+	var majorChart = document.getElementById("majorChart");
+	var myChart = new Chart(majorChart, {
+		type: 'bar',
+		data: {
+			labels: ["졸업자", "취업자", "진학자", "입대자", "취업불가능자", "기타"],
+			datasets: [{
+				label: '2017년 문과대학 국어국문학과',
+				data: [324, 104, 11, 48, 1, 160],
+				backgroundColor: [
+					'rgba(75, 192, 192, 0.2)',
+					'rgba(153, 102, 255, 0.2)',
+					'rgba(75, 192, 192, 0.2)',
+					'rgba(75, 192, 192, 0.2)',
+					'rgba(75, 192, 192, 0.2)',
+					'rgba(75, 192, 192, 0.2)'
+				],
+				borderColor: [
+					'rgba(75, 192, 192, 1)',
+					'rgba(153, 102, 255, 1)',
+					'rgba(75, 192, 192, 1)',
+					'rgba(75, 192, 192, 1)',
+					'rgba(75, 192, 192, 1)',
+					'rgba(75, 192, 192, 1)'
+				],
+				borderWidth: 1
+			}]
+		},
+		options: {
+			scales: {
+				yAxes: [{
+					ticks: {
+						beginAtZero:true
+					}
+				}]
+			}
+		}
+	});
+	var majorChartPie = document.getElementById("majorChartPie");
+	var myChart = new Chart(majorChartPie, {
+		type: 'doughnut',
+		data: {
+			labels: ["취업률"],
+			datasets: [{
+				data: [39.4, 61.6],
+				backgroundColor: [
+					'rgba(153, 102, 255, 0.2)',
+					'rgba(200, 200, 200, 0.2)'
+				],
+				borderColor: [
+					'rgba(153, 102, 255, 1)',
+					'rgba(200, 200, 200, 1)'
+				],
+				borderWidth: 1
+			}]
+		},
+		options: {
+			scales: {
+				yAxes: [{
+					ticks: {
+						beginAtZero:true
+					}
+				}]
+			},
+			tooltips: {
+				callbacks: {
+					label: function(tooltipItem, data) {
+						var dataset = data.datasets[tooltipItem.datasetIndex];
+						var total = dataset.data.reduce(function(previousValue, currentValue, currentIndex, array) {
+							return previousValue + currentValue;
+						});
+					    var currentValue = dataset.data[tooltipItem.index];
+					    var precentage = Math.floor(((currentValue/total) * 100)+0.5).toFixed(1);
+					    return precentage + "%";
+					}
+				}
+			}
+		}
+	});
+
+	//남녀 취업률 비교 차트
+	var genderChart = document.getElementById("genderChart");
+	var myChart = new Chart(genderChart, {
+		type: 'bar',
+		data: {
+			labels: ["졸업자(외국인 제외)", "취업자", "진학자", "입대자", "취업불가능자", "기타"],
+			datasets: [{
+				label: '2017년 남자',
+				data: [1999, 953, 189, 13, 1, 843],
+				backgroundColor: [
+					'rgba(54, 162, 235, 0.2)',
+					'rgba(54, 162, 235, 0.2)',
+					'rgba(54, 162, 235, 0.2)',
+					'rgba(54, 162, 235, 0.2)',
+					'rgba(54, 162, 235, 0.2)',
+					'rgba(54, 162, 235, 0.2)'
+				],
+				borderColor: [
+					'rgba(54, 162, 235, 1)',
+					'rgba(54, 162, 235, 1)',
+					'rgba(54, 162, 235, 1)',
+					'rgba(54, 162, 235, 1)',
+					'rgba(54, 162, 235, 1)',
+					'rgba(54, 162, 235, 1)'
+				],
+				borderWidth: 1
+			}, {
+				label: '2017년 여자',
+				data: [1583, 653, 115, 0, 0, 815],
+				backgroundColor: [
+					'rgba(255, 99, 132, 0.2)',
+					'rgba(255, 99, 132, 0.2)',
+					'rgba(255, 99, 132, 0.2)',
+					'rgba(255, 99, 132, 0.2)',
+					'rgba(255, 99, 132, 0.2)',
+					'rgba(255, 99, 132, 0.2)'
+				],
+				borderColor: [
+					'rgba(255, 99, 132, 1)',
+					'rgba(255, 99, 132, 1)',
+					'rgba(255, 99, 132, 1)',
+					'rgba(255, 99, 132, 1)',
+					'rgba(255, 99, 132, 1)',
+					'rgba(255, 99, 132, 1)'
+				],
+				borderWidth: 1
+			}]
+		},
+		options: {
+			scales: {
+				yAxes: [{
+					ticks: {
+						beginAtZero:true
+					}
+				}]
+			}
+		}
+	});
+	var manChartPie = document.getElementById("manChartPie");
+	var myChart = new Chart(manChartPie, {
+		type: 'doughnut',
+		data: {
+			labels: ["남자 취업률"],
+			datasets: [{
+				data: [39.4, 61.6],
+				backgroundColor: [
+					'rgba(54, 162, 235, 0.2)',
+					'rgba(200, 200, 200, 0.2)'
+				],
+				borderColor: [
+					'rgba(54, 162, 235, 1)',
+					'rgba(200, 200, 200, 1)'
+				],
+				borderWidth: 1
+			}]
+		},
+		options: {
+			scales: {
+				yAxes: [{
+					ticks: {
+						beginAtZero:true
+					}
+				}]
+			},
+			tooltips: {
+				callbacks: {
+					label: function(tooltipItem, data) {
+						var dataset = data.datasets[tooltipItem.datasetIndex];
+						var total = dataset.data.reduce(function(previousValue, currentValue, currentIndex, array) {
+							return previousValue + currentValue;
+						});
+					    var currentValue = dataset.data[tooltipItem.index];
+					    var precentage = Math.floor(((currentValue/total) * 100)+0.5).toFixed(1);
+					    return precentage + "%";
+					}
+				}
+			}
+		}
+	});
+	var womanChartPie = document.getElementById("womanChartPie");
+	var myChart = new Chart(womanChartPie, {
+		type: 'doughnut',
+		data: {
+			labels: ["여자 취업률"],
+			datasets: [{
+				data: [39.4, 61.6],
+				backgroundColor: [
+					'rgba(255, 99, 132, 0.2)',
+					'rgba(200, 200, 200, 0.2)'
+				],
+				borderColor: [
+					'rgba(255, 99, 132, 1)',
+					'rgba(200, 200, 200, 1)'
+				],
+				borderWidth: 1
+			}]
+		},
+		options: {
+			scales: {
+				yAxes: [{
+					ticks: {
+						beginAtZero:true
+					}
+				}]
+			},
+			tooltips: {
+				callbacks: {
+					label: function(tooltipItem, data) {
+						var dataset = data.datasets[tooltipItem.datasetIndex];
+						var total = dataset.data.reduce(function(previousValue, currentValue, currentIndex, array) {
+							return previousValue + currentValue;
+						});
+					    var currentValue = dataset.data[tooltipItem.index];
+					    var precentage = Math.floor(((currentValue/total) * 100)+0.5).toFixed(1);
+					    return precentage + "%";
+					}
+				}
+			}
+		}
+	});
+
+	//남자 출생년도별 취업률 비교 차트
+	var yearOfBirthManChart = document.getElementById("yearOfBirthManChart");
+	var myChart = new Chart(yearOfBirthManChart, {
+		type: 'bar',
+		data: {
+			labels: ["졸업자", "취업자", "진학자", "입대자", "취업불가능자", "기타"],
+			datasets: [{
+				label: '2017년 1994년생',
+				data: [324, 104, 11, 48, 1, 160],
+				backgroundColor: [
+					'rgba(54, 162, 235, 0.2)',
+					'rgba(153, 102, 255, 0.2)',
+					'rgba(54, 162, 235, 0.2)',
+					'rgba(54, 162, 235, 0.2)',
+					'rgba(54, 162, 235, 0.2)',
+					'rgba(54, 162, 235, 0.2)'
+				],
+				borderColor: [
+					'rgba(54, 162, 235, 1)',
+					'rgba(153, 102, 255, 1)',
+					'rgba(54, 162, 235, 1)',
+					'rgba(54, 162, 235, 1)',
+					'rgba(54, 162, 235, 1)',
+					'rgba(54, 162, 235, 1)'
+				],
+				borderWidth: 1
+			}]
+		},
+		options: {
+			scales: {
+				yAxes: [{
+					ticks: {
+						beginAtZero:true
+					}
+				}]
+			}
+		}
+	});
+	var yearOfBirthManChartPie = document.getElementById("yearOfBirthManChartPie");
+	var myChart = new Chart(yearOfBirthManChartPie, {
+		type: 'doughnut',
+		data: {
+			labels: ["취업률"],
+			datasets: [{
+				data: [39.4, 61.6],
+				backgroundColor: [
+					'rgba(153, 102, 255, 0.2)',
+					'rgba(200, 200, 200, 0.2)'
+				],
+				borderColor: [
+					'rgba(153, 102, 255, 1)',
+					'rgba(200, 200, 200, 1)'
+				],
+				borderWidth: 1
+			}]
+		},
+		options: {
+			scales: {
+				yAxes: [{
+					ticks: {
+						beginAtZero:true
+					}
+				}]
+			},
+			tooltips: {
+				callbacks: {
+					label: function(tooltipItem, data) {
+						var dataset = data.datasets[tooltipItem.datasetIndex];
+						var total = dataset.data.reduce(function(previousValue, currentValue, currentIndex, array) {
+							return previousValue + currentValue;
+						});
+					    var currentValue = dataset.data[tooltipItem.index];
+					    var precentage = Math.floor(((currentValue/total) * 100)+0.5).toFixed(1);
+					    return precentage + "%";
+					}
+				}
+			}
+		}
+	});
+
+	//여자 출생년도별 취업률 비교 차트
+	var yearOfBirthWomanChart = document.getElementById("yearOfBirthWomanChart");
+	var myChart = new Chart(yearOfBirthWomanChart, {
+		type: 'bar',
+		data: {
+			labels: ["졸업자", "취업자", "진학자", "입대자", "취업불가능자", "기타"],
+			datasets: [{
+				label: '2017년 1994년생',
+				data: [324, 104, 11, 48, 1, 160],
+				backgroundColor: [
+					'rgba(255, 99, 132, 0.2)',
+					'rgba(153, 102, 255, 0.2)',
+					'rgba(255, 99, 132, 0.2)',
+					'rgba(255, 99, 132, 0.2)',
+					'rgba(255, 99, 132, 0.2)',
+					'rgba(255, 99, 132, 0.2)'
+				],
+				borderColor: [
+					'rgba(255, 99, 132, 1)',
+					'rgba(153, 102, 255, 1)',
+					'rgba(255, 99, 132, 1)',
+					'rgba(255, 99, 132, 1)',
+					'rgba(255, 99, 132, 1)',
+					'rgba(255, 99, 132, 1)'
+				],
+				borderWidth: 1
+			}]
+		},
+		options: {
+			scales: {
+				yAxes: [{
+					ticks: {
+						beginAtZero:true
+					}
+				}]
+			}
+		}
+	});
+	var yearOfBirthWomanChartPie = document.getElementById("yearOfBirthWomanChartPie");
+	var myChart = new Chart(yearOfBirthWomanChartPie, {
+		type: 'doughnut',
+		data: {
+			labels: ["취업률"],
+			datasets: [{
+				data: [39.4, 61.6],
+				backgroundColor: [
+					'rgba(153, 102, 255, 0.2)',
+					'rgba(200, 200, 200, 0.2)'
+				],
+				borderColor: [
+					'rgba(153, 102, 255, 1)',
+					'rgba(200, 200, 200, 1)'
+				],
+				borderWidth: 1
+			}]
+		},
+		options: {
+			scales: {
+				yAxes: [{
+					ticks: {
+						beginAtZero:true
+					}
+				}]
+			},
+			tooltips: {
+				callbacks: {
+					label: function(tooltipItem, data) {
+						var dataset = data.datasets[tooltipItem.datasetIndex];
+						var total = dataset.data.reduce(function(previousValue, currentValue, currentIndex, array) {
+							return previousValue + currentValue;
+						});
+					    var currentValue = dataset.data[tooltipItem.index];
+					    var precentage = Math.floor(((currentValue/total) * 100)+0.5).toFixed(1);
+					    return precentage + "%";
+					}
+				}
+			}
+		}
+	});
+
+	//남녀 출생년도별 취업률 비교 차트
+	var manWomanChartLine = document.getElementById("manWomanChartLine");
+	var myChart = new Chart(manWomanChartLine, {
+		type: 'line',
+		data: {
+			labels: ["1986(만 32세)", "1987(만 31세)", "1988(만 30세)", "1989(만 29세)", "1990(만 28세)", "1991(만 27세)", "1992(만 26세)", "1993(만 25세)", "1994(만 24세)", "1995(만 23세)", "1996(만 22세)"],
+			datasets: [{
+				label: '남자',
+				fill: false,
+				pointBorderWidth: 3,
+				data: [44.8, 52.2, 30.3, 33.4, 35.5, 36.6, 44.8, 52.2, 30.3, 33.4, 35.5],
+				backgroundColor: [
+					'rgba(54, 162, 235, 0.2)',
+					'rgba(54, 162, 235, 0.2)',
+					'rgba(54, 162, 235, 0.2)',
+					'rgba(54, 162, 235, 0.2)',
+					'rgba(54, 162, 235, 0.2)',
+					'rgba(54, 162, 235, 0.2)',
+					'rgba(54, 162, 235, 0.2)',
+					'rgba(54, 162, 235, 0.2)',
+					'rgba(54, 162, 235, 0.2)',
+					'rgba(54, 162, 235, 0.2)',
+					'rgba(54, 162, 235, 0.2)'
+				],
+				borderColor: [
+					'rgba(54, 162, 235, 1)',
+					'rgba(54, 162, 235, 1)',
+					'rgba(54, 162, 235, 1)',
+					'rgba(54, 162, 235, 1)',
+					'rgba(54, 162, 235, 1)',
+					'rgba(54, 162, 235, 1)',
+					'rgba(54, 162, 235, 1)',
+					'rgba(54, 162, 235, 1)',
+					'rgba(54, 162, 235, 1)',
+					'rgba(54, 162, 235, 1)',
+					'rgba(54, 162, 235, 1)'
+				],
+				borderWidth: 2,
+				pointHoverBackgroundColor: 'rgba(54, 162, 235, 1)',
+				pointHoverBorderColor: 'rgba(54, 162, 235, 1)'
+			}, {
+				label: '여자',
+				fill: false,
+				pointBorderWidth: 3,
+				data: [34.8, 42.2, 70.3, 43.4, 25.5, 16.6, 64.8, 42.2, 50.3, 13.4, 25.5],
+				backgroundColor: [
+					'rgba(255, 99, 132, 0.2)',
+					'rgba(255, 99, 132, 0.2)',
+					'rgba(255, 99, 132, 0.2)',
+					'rgba(255, 99, 132, 0.2)',
+					'rgba(255, 99, 132, 0.2)',
+					'rgba(255, 99, 132, 0.2)',
+					'rgba(255, 99, 132, 0.2)',
+					'rgba(255, 99, 132, 0.2)',
+					'rgba(255, 99, 132, 0.2)',
+					'rgba(255, 99, 132, 0.2)',
+					'rgba(255, 99, 132, 0.2)'
+				],
+				borderColor: [
+					'rgba(255, 99, 132, 1)',
+					'rgba(255, 99, 132, 1)',
+					'rgba(255, 99, 132, 1)',
+					'rgba(255, 99, 132, 1)',
+					'rgba(255, 99, 132, 1)',
+					'rgba(255, 99, 132, 1)',
+					'rgba(255, 99, 132, 1)',
+					'rgba(255, 99, 132, 1)',
+					'rgba(255, 99, 132, 1)',
+					'rgba(255, 99, 132, 1)',
+					'rgba(255, 99, 132, 1)'
+				],
+				borderWidth: 2,
+				pointHoverBackgroundColor: 'rgba(255, 99, 132, 1)',
+				pointHoverBorderColor: 'rgba(255, 99, 132, 1)'
+			}]
+		},
+		options: {
+			scales: {
+				yAxes: [{
+					ticks: {
+						beginAtZero:true
+					}
+				}]
+			},
+			elements: {
+				line: {
+					tension: 0
+				}
+			},
+			tooltips: {
+				callbacks: {
+					label: function(tooltipItem, data) {
+						var dataset = data.datasets[tooltipItem.datasetIndex];
+						var total = dataset.data.reduce(function(previousValue, currentValue, currentIndex, array) {
+							return previousValue + currentValue;
+						});
+					    var currentValue = dataset.data[tooltipItem.index];
+					    var precentage = Math.floor(((currentValue/total) * 100)+0.5).toFixed(1);
+					    return precentage + "%";
+					}
+				}
+			}
+		}
+	});
+	//차트 클릭 이벤트
+	/*genderChart.onclick = function (evt) {
+        var activePoints = myChart.getElementsAtEventForMode(evt, 'point', myChart.options);
+        var firstPoint = activePoints[0];
+        var label = myChart.data.labels[firstPoint._index];
+        var value = myChart.data.datasets[firstPoint._datasetIndex].data[firstPoint._index];
+        alert(label + ": " + value);
+    };*/
+});
