@@ -1,5 +1,5 @@
-### 목원대
+### 목원대 메인
 
 > 참여도 : 퍼블리싱 100%
 
-> URL : https://2arm2.github.io/web/mokwon/index.html
+URL : https://2arm2.github.io/web/mokwon/index.html
