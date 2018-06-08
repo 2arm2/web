@@ -1,0 +1,118 @@
+@charset "utf-8";
+
+/* base */
+@font-face {
+    font-family: 'Noto Sans Light';
+    font-style: normal;
+    font-weight: 100;
+    src: local('Noto Sans Thin'), local('Noto Sans Thin'), local('Noto Sans Thin');
+    src: url(../fonts/NotoSans-Thin.eot);
+    src: url(../fonts/NotoSans-Thin.eot?#iefix) format('embedded-opentype'),
+    url(../fonts/NotoSans-Thin.woff) format('woff'),
+    url(../fonts/NotoSans-Thin.otf) format('truetype');
+}
+
+@font-face {
+    font-family: 'Noto Sans';
+    font-style: normal;
+    font-weight: 300;
+    src: local('Noto Sans Light'), local('Noto Sans Light'), local('Noto Sans Light');
+    src: url(../fonts/NotoSans-Light.eot);
+    src: url(../fonts/NotoSans-Light.eot?#iefix) format('embedded-opentype'),
+    url(../fonts/NotoSans-Light.woff) format('woff'),
+    url(../fonts/NotoSans-Light.otf) format('truetype');
+}
+
+@font-face {
+    font-family: 'Noto Sans Bold';
+    font-style: normal;
+    font-weight: 700;
+    src: local('Noto Sans Bold'), local('Noto Sans Bold'), local('Noto Sans Bold');
+    src: url(../fonts/NotoSans-Bold.eot);
+    src: url(../fonts/NotoSans-Bold.eot?#iefix) format('embedded-opentype'),
+    url(../fonts/NotoSans-Bold.woff) format('woff'),
+    url(../fonts/NotoSans-Bold.otf) format('truetype');
+}
+
+html,body,div,span,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,blockquote,p,address,pre,cite,form,fieldset,legend,input,label,button,textarea,select,table,caption,thead,tfoot,tbody,tr,th,td,img{margin:0;padding:0;}
+body,table,th,tr,td,select,input,div,form,button,textarea,h1,h2,h3,h4,h5,h6{font-family:'Noto Sans Light','나눔고딕','맑은 고딕','Malgun Gothic','돋움',dotum,sans-serif;color:#000;font-size:14px;}
+body{background-color:#FFF;overflow-x:hidden;}
+img{vertical-align:top;}
+img,fieldset,input{border:0;}
+input,select,button{vertical-align:middle;}
+input,textarea{outline-style:none}
+button{border:0;}
+li{list-style:none;}
+address{font-style:normal;}
+
+a{text-decoration:none;}
+a:link{color:#000;}
+a:visited{color:#000;}
+a:hover{color:#000;}
+a:active{color:#000;}
+
+.clearfix{*zoom:1;}
+.clearfix:after{clear:both;display:block;content:'';}
+
+.w1000{width:1000px;margin:0 auto;}
+.noto{font-family:'Noto Sans';}
+.notoB{font-family:'Noto Sans Bold';}
+
+/* gnb */
+#gnb{position:fixed;width:100%;top:0;background-color:#000;z-index:9999;}
+#gnb .gnb h1{float:left;}
+#gnb .gnb h1 img{margin-top:16px;}
+#gnb .gnb ul{float:left;height:100px;line-height:100px;}
+#gnb .gnb li{display:inline;margin-left:100px;}
+#gnb .gnb a{color:#FFF;}
+
+/* main */
+#main{background:url('../images/me.jpg') no-repeat center center fixed;-webkit-background-size:cover;-moz-background-size:cover;-o-background-size:cover;background-size:cover;}
+#main p{color:#FFF;font-size:50px;padding-top:300px;}
+
+/* arm */
+#arm{padding:200px 0;}
+#arm .arm h2{font-size:12px;letter-spacing:3px;margin-bottom:100px;}
+#arm .arm dl{background:url('../images/about.jpg') no-repeat right 0;height:463px;}
+#arm .arm dt{display:inline-block;font-family:'Noto Sans Bold';font-size:11px;letter-spacing:3px;color:#A1A1A1;margin:20px 0 5px;}
+#arm .arm dd{letter-spacing:3px;font-size:20px;}
+
+/* web */
+#web{background-color:#F0F0F0;padding:200px 0 0 0;}
+#web .web h2{font-size:12px;letter-spacing:3px;margin-bottom:200px;}
+#web .web li{float:left;width:480px;margin:0 40px 100px 0;}
+#web .web li img{border:1px solid #CCC;}
+#web .web li dl{margin:50px 0;}
+#web .web li dt{font-family:'Noto Sans Bold';font-size:11px;letter-spacing:3px;margin:20px 0 5px;}
+#web .web li dd{font-size:20px;}
+#web .web li a{display:block;width:150px;height:50px;line-height:50px;font-family:'Noto Sans Bold';font-size:11px;letter-spacing:3px;text-align:center;border:2px solid #000;}
+
+/* editorial */
+#editorial{padding:200px 0;}
+#editorial .editorial h2{font-size:12px;letter-spacing:3px;margin-bottom:200px;}
+#editorial .owl-carousel div{float:left;width:100%;text-align:center;}
+#editorial .editorial_detail{display:none;width:1000px;height:600px;overflow-y:scroll;background-color:#FFF;text-align:center;z-index:10001;}
+#editorial .editorial_detail h3{font-size:12px;letter-spacing:3px;margin-bottom:100px;background-color:#333;color:#FFF;width:200px;margin-top:100px;}
+#editorial .editorial_detail img{border:1px solid #CCC;margin-bottom:100px;}
+#editorial .owl-prev{display:none;}
+#editorial .owl-next{display:none;}
+
+/* etc */
+#etc{background-color:#F0F0F0;padding:200px 0;}
+#etc .etc h2{font-size:12px;letter-spacing:3px;margin-bottom:200px;}
+#etc .faq{border-bottom:1px solid #333;margin:1em auto;text-align:center;width:1000px;font-size:1em;}
+#etc .faq .faqHeader{position:relative;zoom:1;}
+#etc .faq .faqHeader .showAll{position:absolute;bottom:-5px;right:-5px;border:0;padding:10px;overflow:visible;background-color:#333;color:#fff;cursor:pointer;margin:5px;font-weight:bold;}
+#etc .faq .faqBody{margin:0;padding:0;border-top:2px solid #333;}
+#etc .faq .q{margin:0;border-top:1px solid #ddd;}
+#etc .faq .q a{display:block;padding:30px 0;font-size:30px;font-weight:bold;color:#333;}
+#etc .faq .q a:hover, .faq .q a:active, .faq .q a:focus{background:#f8f8f8;}
+#etc .faq .a{margin-top:100px;line-height:1.5;text-align:center;}
+#etc .faq .a img{margin-bottom:50px;}
+
+/* footer */
+#footer{background-color:#333;padding:50px 0;}
+#footer p{color:#FFF;}
+
+/* mask */
+#mask{position:absolute;left:0;top:0;z-index:10000;background-color:#000;cursor:pointer;}
