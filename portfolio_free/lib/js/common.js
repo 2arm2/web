@@ -23,17 +23,24 @@ $(document).ready(function() {
 		}
 	};
 
+	//햄버거메뉴 마우스오버 이벤트
+	$('#header .m_lnb').find('li').on('mouseover', function() {
+		$(this).addClass('on').siblings().removeClass('on');
+	});
+
+	$('#header .m_lnb').find('li').on('mouseleave', function() {
+		$(this).removeClass('on');
+	});
+
 	//메인 슬라이드
 	$('#fullpage').fullpage({
-        anchors: ['firstPage', 'secondPage', '3rdPage', '4thpage', 'lastPage'],
+        anchors: ['firstPage', 'secondPage', '3rdPage', '4thpage', '5thpage', '6thpage', 'lastPage'],
         menu: '#menu',
 		afterLoad: function(anchorLink, index) {
 			var loadedSection = $(this);
-			$('#section0,#section1,#section2,#section3').removeClass('on');
-			if(index <= 4){
+			$('.section').removeClass('on');
+			if(index <= 7){
 				$('#section'+(index-1)).addClass('on');
-			} else {
-				$('#section3').addClass('on');
 			}
 		}
     });

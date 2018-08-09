@@ -102,33 +102,57 @@ html.open{overflow:hidden;}
 #header .m_lnb_wrap > button{width:40px;height:34px;background-image:url('../../images/common/menu_white.png');background-repeat:no-repeat;text-indent:-9999px;}
 #header.fixed .m_lnb_wrap > button{background-image:url('../../images/common/menu_black.png');}
 #header .m_lnb_wrap .close{position:absolute;left:65px;top:65px;width:40px;height:34px;background-image:url('../../images/common/closed.png');background-repeat:no-repeat;text-indent:-9999px;}
-#header .m_lnb{position:fixed;top:-110%;left:0;width:100%;height:100%;background-color:#FFF;-webkit-transition:All 0.5s cubic-bezier(0.785, 0.135, 0.15, 0.86);-moz-transition:All 0.5s cubic-bezier(0.785, 0.135, 0.15, 0.86);-o-transition:All 0.5s cubic-bezier(0.785, 0.135, 0.15, 0.86);transition:All 0.5s cubic-bezier(0.785, 0.135, 0.15, 0.86);}
+#header .m_lnb{position:fixed;top:-110%;left:0;width:100%;height:100%;background:#2a0845;background: linear-gradient(45deg, #2a0845, #6441A5);-webkit-transition:All 0.5s cubic-bezier(0.785, 0.135, 0.15, 0.86);-moz-transition:All 0.5s cubic-bezier(0.785, 0.135, 0.15, 0.86);-o-transition:All 0.5s cubic-bezier(0.785, 0.135, 0.15, 0.86);transition:All 0.5s cubic-bezier(0.785, 0.135, 0.15, 0.86);}
 #header .m_lnb.open{top:0;}
 #header .m_lnb > a{position:absolute;left:20%;top:50px;}
 #header .m_lnb > a img{width:60px;}
-#header .m_lnb ul{position:absolute;top:50%;left:50%;margin:-195px 0 0 -50%;width:100%;height:390px;}
-#header .m_lnb li{margin:30px;}
-#header .m_lnb li a{position:relative;font-size:30px;font-weight:bold;}
-#header .m_lnb li a:before{content:'';position:absolute;width:100%;height:2px;bottom:-2px;left:0;background-color:#FFF;visibility:hidden;-webkit-transform:scaleX(0);transform:scaleX(0);-webkit-transition:all 0.3s ease-in-out 0s;-moz-transition:all 0.3s ease-in-out 0s;-o-transition:all 0.3s ease-in-out 0s;transition:all 0.3s ease-in-out 0s;}
-#header .m_lnb li a:before{background-color:#ff1744;}
-#header .m_lnb li a:hover:before{visibility:visible;-webkit-transform:scaleX(1);-moz-transition:scaleX(1);-o-transition:scaleX(1);transform:scaleX(1);}
+#header .m_lnb li{position:absolute;top:0;width:10%;height:100%;border-left:1px solid rgba(255,255,255,.04);}
+#header .m_lnb .portfolio01{left:40%;}
+#header .m_lnb .portfolio02{left:50%;}
+#header .m_lnb .portfolio03{left:60%;}
+#header .m_lnb .portfolio04{left:70%;}
+#header .m_lnb .portfolio05{left:80%;}
+#header .m_lnb .portfolio06{left:90%;}
+#header .m_lnb li a{display:block;width:100%;height:100%;}
+#header .m_lnb li span{position:absolute;top:40%;left:0;font-size:50px;font-weight:bold;color:rgba(255,255,255,.1);}
+#header .m_lnb li p{position:absolute;top:50%;left:15%;text-align:left;line-height:20px;color:rgba(255,255,255,.5);}
+#header .m_lnb .portfolio01 a{background:#16A085;background: linear-gradient(45deg, #16A085, #F4D03F);background-size:0;}
+#header .m_lnb .portfolio02 a{background:#c31432;background: linear-gradient(45deg, #240b36, #c31432);background-size:0;}
+#header .m_lnb .portfolio03 a{background:#0f3443;background: linear-gradient(45deg, #0f3443, #34e89e);background-size:0;}
+#header .m_lnb .portfolio04 a{background:#4776E6;background: linear-gradient(45deg, #4776E6, #8E54E9);background-size:0;}
+#header .m_lnb .portfolio05 a{background:#1A2980;background: linear-gradient(45deg, #1A2980, #26D0CE);background-size:0;}
+#header .m_lnb .portfolio06 a{background:#FF5F6D;background: linear-gradient(45deg, #FF5F6D, #FFC371);background-size:0;}
+#header .m_lnb li.on a{background-size:100%;}
+#header .m_lnb li.on span{left:10%;-webkit-transition:All 0.5s ease;-moz-transition:All 0.5s ease;-o-transition:All 0.5s ease;transition:All 0.5s ease;}
+#header .m_lnb li.on p{left:10%;-webkit-transition:All 0.5s ease;-moz-transition:All 0.5s ease;-o-transition:All 0.5s ease;transition:All 0.5s ease;}
 
 /* Common-Main */
 #fullpage .section{padding-left:20%;}
 #fullpage .section p{position:absolute;bottom:50px;left:20%;color:rgba(255,255,255,.5);letter-spacing:5px;font-size:10px;}
 #fullpage .section .portfolio_wrap{position:relative;color:#FFF;}
 #fullpage .section .portfolio_wrap img{float:left;}
+#fullpage .section.on .portfolio_wrap img{
+	transform: rotate(1deg);
+	-webkit-transform: rotate(1deg);
+	-moz-transform: rotate(1deg);
+	-o-transform: rotate(1deg);
+	-ms-transform: rotate(1deg);
+	-webkit-transition:all 1s;-moz-transition:all 1s;-o-transition:all 1s;transition:all 1s;
+}
 #fullpage .section .portfolio_wrap dl{float:left;padding:50px;}
 #fullpage .section .portfolio_wrap dt{font-size:30px;margin-bottom:30px;}
 #fullpage .section .portfolio_wrap dd{line-height:20px;}
-#fullpage .section .portfolio_wrap a{position:absolute;bottom:50px;left:50%;margin-left:80px;color:#FFF;padding:8px 30px;border:1px solid #FFF;-webkit-border-radius:16px;-moz-border-radius:16px;border-radius:16px;}
-#fullpage .section .portfolio_wrap a:hover, #fullpage .section .portfolio_wrap a:active, #fullpage .section .portfolio_wrap a:focus{background-color:#FFF;color:#555;}
+#fullpage .section .portfolio_wrap a{position:absolute;bottom:50px;left:50%;margin-left:80px;color:rgba(255,255,255,.5);font-size:10px;padding:16px 50px;border:1px solid rgba(255,255,255,.5);-webkit-border-radius:25px;-moz-border-radius:25px;border-radius:25px;}
+#fullpage .section .portfolio_wrap a:hover, #fullpage .section .portfolio_wrap a:active, #fullpage .section .portfolio_wrap a:focus{background-color:rgba(255,255,255,.3);color:#FFF;border:1px solid rgba(255,255,255,.2);}
 #section0 dl{position:absolute;top:50%;margin-top:-100px;left:20%;}
 #section0 dt{margin-bottom:30px;color:rgba(255,255,255,.5);letter-spacing:5px;}
 #section0 dd{font-size:30px;color:#FFF;}
 #section1{background:#16A085;background: linear-gradient(45deg, #16A085, #F4D03F);}
 #section2{background:#c31432;background: linear-gradient(45deg, #240b36, #c31432);}
-#section3{background:#6A9113;background: linear-gradient(45deg, #141517, #6A9113);}
+#section3{background:#0f3443;background: linear-gradient(45deg, #0f3443, #34e89e);}
+#section4{background:#4776E6;background: linear-gradient(45deg, #4776E6, #8E54E9);}
+#section5{background:#1A2980;background: linear-gradient(45deg, #1A2980, #26D0CE);}
+#section6{background:#FF5F6D;background: linear-gradient(45deg, #FF5F6D, #FFC371);}
 
 svg {
 	display: block;
