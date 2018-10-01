@@ -2,20 +2,17 @@ $(document).ready(function() {
 	
 	//메뉴 마우스오버 이벤트
 	$('#header').find('ul > li.web_design a').on('keyup mouseenter focusin', function() {
-		$(this).parents('#header').removeClass('on_app on_brochure on_logo').addClass('on_web');
+		$(this).parents('#header').removeClass('on_app on_brochure').addClass('on_web');
 	});
 	$('#header').find('ul > li.app_design a').on('keyup mouseenter focusin', function() {
-		$(this).parents('#header').removeClass('on_web on_brochure on_logo').addClass('on_app');
+		$(this).parents('#header').removeClass('on_web on_brochure').addClass('on_app');
 	});
 	$('#header').find('ul > li.brochure_design a').on('keyup mouseenter focusin', function() {
-		$(this).parents('#header').removeClass('on_web on_app on_logo').addClass('on_brochure');
-	});
-	$('#header').find('ul > li.logo_design a').on('keyup mouseenter focusin', function() {
-		$(this).parents('#header').removeClass('on_web on_app on_brochure').addClass('on_logo');
+		$(this).parents('#header').removeClass('on_web on_app').addClass('on_brochure');
 	});
 
 	$('#header').find('ul > li a').on('keydown mouseleave focusout', function() {
-		$(this).parents('#header').removeClass('on_app on_brochure on_logo').addClass('on_web');
+		$(this).parents('#header').removeClass('on_app on_brochure').addClass('on_web');
 	});
 
 	//메뉴 고정
