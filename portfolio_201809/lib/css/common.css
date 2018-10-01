@@ -117,12 +117,12 @@ a:hover, a:active, a:focus{-webkit-transition:All 0.5s ease;-moz-transition:All 
 #contents .project_wrap h2{text-align:center;font-size:20px;color:#a3b5fd;}
 #contents .project_wrap h3{text-align:center;margin-bottom:30px;padding-top:70px;}
 #contents .project_wrap ul{font-size:0;text-align:center;}
-#contents .project_wrap li{display:inline-block;vertical-align:middle;font-size:13px;width:270px;height:314px;margin:3px;background:#F0F0F0;}
+#contents .project_wrap li{display:inline-block;vertical-align:middle;font-size:13px;width:270px;height:314px;margin:3px;background:#FFF;}
 #contents .project_wrap li img{width:270px;}
 #contents .project_wrap li a{position:relative;display:block;width:270px;height:314px;}
 #contents .project_wrap li a:after{content:'';position:absolute;top:0;right:0;bottom:0;left:0;box-shadow:inset 0 0 0 0 rgba(0,0,0,.1);transition:box-shadow .1s ease;}
 #contents .project_wrap li a:hover:after{box-shadow:inset 0 0 0 10px rgba(0,0,0,.1);}
-#contents .project_wrap li dl{padding:20px;background:#FFF;border-top:1px dashed #F8F8F8;text-align:left;}
+#contents .project_wrap li dl{padding:20px;border-top:1px dashed #F8F8F8;text-align:left;}
 #contents .project_wrap li dt{color:#000624;}
 #contents .project_wrap li dd{color:#a1a1a3;}
 html.open{overflow:hidden;}
@@ -139,7 +139,6 @@ html.open{overflow:hidden;}
 
 
 /* Media Query */
-
 @media all and (max-width:1024px){
 	#header{position:fixed;top:0;left:0;width:90%;height:60px;padding:5%;}
 	#header h1{float:left;}
@@ -150,18 +149,21 @@ html.open{overflow:hidden;}
 	#contents .contents ul{top:300px;right:5%;}
 	#contents .introduce{margin:-550px auto 0;}
 	#contents .introduce > dl{margin:0 auto;}
+	#contents .introduce > div{padding:20px;background:none;}
+	.flip{margin:10px 0 5px;}
 	#contents .project_wrap li dd{font-size:11px;}
 }
 @media all and (min-width:768px) and (max-width:1024px){
 	.headline{font-size:25px;}
 }
 @media all and (min-width:1025px) and (max-width:1449px){
-	#header{margin-left:-500px;}
+	#header{left:50%;width:300px;height:350px;padding:50px;margin-left:-500px;}
 	#contents .contents{width:90%;height:900px;}
 	#contents .contents ul{margin-left:700px;}
 	#contents .introduce{width:1000px;margin:-150px auto 0;}
 	#contents .introduce > dl{float:left;width:600px;padding:50px;}
 	#contents .introduce > div{float:left;width:200px;}
+	.headline{font-size:25px;margin-left:0;}
 }
 @media all and (min-width:1450px){
 	#header{left:50%;width:300px;height:350px;padding:50px;margin-left:-750px;}
