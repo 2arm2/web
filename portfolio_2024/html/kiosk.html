@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+
+    <meta property="og:title" content="앎">
+    <meta property="og:site_name" content="앎">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://2arm2.github.io/web/portfolio_2024/index.html">
+    <meta property="og:image" content="https://2arm2.github.io/web/portfolio_2020/images/og_image.png">
+    <meta property="og:image:width" content="400">
+    <meta property="og:image:height" content="210">
+    <meta property="og:description" content="퍼블리셔 이아름의 포트폴리오 사이트입니다.">
+    <meta name="description" content="퍼블리셔 이아름의 포트폴리오 사이트입니다.">
+    <link rel="canonical" href="https://2arm2.github.io/web/portfolio_2024/index.html">
+    <link rel="shortcut icon" href="https://2arm2.github.io/web/portfolio_2020/images/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="https://2arm2.github.io/web/portfolio_2020/images/favicon.png">
+
+    <title>앎's PORTFOLIO</title>
+    <link rel="stylesheet" href="./lib/css/style.css">
+</head>
+
+<body>
+    <div class="container">
+        <!-- header -->
+        <header>
+            <div class="header">
+                <div class="side-navi">
+                    <!-- 메뉴 아이콘 -->
+                    <button type="button" onclick="openDialog('menuDialog', this)" class="btn-menu" title="메뉴">
+                        <span class="sr-only">메뉴 여닫기 아이콘</span>
+                        <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                            viewBox="0 0 24 24" style="fill: #69707a;">
+                            <path d="M4 6h16v2H4zm0 5h16v2H4zm0 5h16v2H4z"></path>
+                        </svg>
+                    </button>
+                    <!-- 메뉴 아이콘 -->
+
+                    <!-- 로고 -->
+                    <div class="logo">
+                        <h1><a href="./index.html"><img src="https://2arm2.github.io/web/portfolio_2020/images/logo.png"
+                                    alt="앎 로고"><span>'s PORTFOLIO v6</span></a></h1>
+                    </div>
+                    <!-- 로고 -->
+                </div>
+            </div>
+        </header>
+        <!-- /header -->
+
+        <!-- layout -->
+        <div class="layout">
+            <!-- gnb -->
+            <div id="menuDialogLayer" class="dialogs">
+                <nav role="dialog" id="menuDialog" aria-labelledby="menu-dialog" aria-modal="true" class="menu">
+                    <span id="menu-dialog" class="sr-only">전체 메뉴</span>
+
+                    <div class="gnb-wrap">
+                        <!-- 메뉴 -->
+                        <ul class="gnb">
+                            <!-- 웹 -->
+                            <li>
+                                <a href="./web.html" class="subject">
+                                    <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                        viewBox="0 0 24 24" style="fill: #adc3f7;">
+                                        <path
+                                            d="M8.293 6.293 2.586 12l5.707 5.707 1.414-1.414L5.414 12l4.293-4.293zm7.414 11.414L21.414 12l-5.707-5.707-1.414 1.414L18.586 12l-4.293 4.293z">
+                                        </path>
+                                    </svg>
+                                    <span>웹</span>
+                                </a>
+                            </li>
+                            <!-- /웹 -->
+
+                            <!-- 키오스크 -->
+                            <li>
+                                <a href="./kiosk.html" class="subject">
+                                    <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                        viewBox="0 0 24 24" style="fill: #adc3f7;">
+                                        <path d="M5 5h5V3H3v7h2zm5 14H5v-5H3v7h7zm11-5h-2v5h-5v2h7zm-2-4h2V3h-7v2h5z">
+                                        </path>
+                                    </svg>
+                                    <span>키오스크</span>
+                                </a>
+                                <!-- <ul class="lnb">
+                                    <li>
+                                        <a href="javascript: void(0);"></a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript: void(0);"></a>
+                                    </li>
+                                </ul> -->
+                            </li>
+                            <!-- /키오스크 -->
+                        </ul>
+                        <!-- /메뉴 -->
+
+                        <select name="portfolio-list" id="portfolio-list" onchange="fOpenNewTab(this)">
+                            <option value="">PORTFOLIO 바로가기</option>
+                            <option value="https://2arm2.github.io/web/portfolio_ver1/index.html">앎's PORTFOLIO v1(새창)
+                            </option>
+                            <option value="https://2arm2.github.io/web/portfolio_ver2/index.html">앎's PORTFOLIO v2(새창)
+                            </option>
+                            <option value="https://2arm2.github.io/web/portfolio_free/index.html">앎's PORTFOLIO v3(새창)
+                            </option>
+                            <option value="https://2arm2.github.io/web/portfolio_201809/index.html">앎's PORTFOLIO v4(새창)
+                            </option>
+                            <option value="https://2arm2.github.io/web/portfolio_2020/index.html">앎's PORTFOLIO v5(새창)
+                            </option>
+                        </select>
+                    </div>
+
+                    <button type="button" onclick="closeDialog(this)" class="btn-closed-menu" title="닫기">
+                        <span class="sr-only">닫기 아이콘</span>
+                        <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                            viewBox="0 0 24 24" style="fill: #69707a;">
+                            <path
+                                d="m16.192 6.344-4.243 4.242-4.242-4.242-1.414 1.414L10.535 12l-4.242 4.242 1.414 1.414 4.242-4.242 4.243 4.242 1.414-1.414L13.364 12l4.242-4.242z">
+                            </path>
+                        </svg>
+                    </button>
+                </nav>
+            </div>
+            <!-- /gnb -->
+
+            <!-- content -->
+            <div class="content">
+                <ul class="work-list kiosk">
+                    <li>
+                        <a href="javascript: void(0);" onclick="openDialog('dialog01', this)">
+                            <img src="./images/kiosk/bf-index.png" alt="BF 자가대출반납기 메인화면">
+                            <h2>BF 자가대출반납기</h2>
+                            <div class="badge-wrap">
+                                <span class="badge-publishing">퍼블리싱</span>
+                                <span class="badge-design">디자인</span>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript: void(0);" onclick="openDialog('dialog02', this)">
+                            <img src="./images/kiosk/school-index.png" alt="학교 자가대출반납기 메인화면">
+                            <h2>학교 자가대출반납기</h2>
+                            <div class="badge-wrap">
+                                <span class="badge-publishing">퍼블리싱</span>
+                                <span class="badge-design">디자인</span>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript: void(0);" onclick="openDialog('dialog03', this)">
+                            <img src="./images/kiosk/general-index.png" alt="성인 자가대출반납기 메인화면">
+                            <h2>성인 자가대출반납기</h2>
+                            <div class="badge-wrap">
+                                <span class="badge-publishing">퍼블리싱</span>
+                                <span class="badge-design">디자인</span>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript: void(0);" onclick="openDialog('dialog06', this)">
+                            <img src="./images/kiosk/acms-index.png" alt="학교 방문자 출입등록 시스템 메인화면">
+                            <h2>학교 방문자 출입등록 시스템</h2>
+                            <div class="badge-wrap">
+                                <span class="badge-publishing">퍼블리싱</span>
+                                <span class="badge-design">디자인</span>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+                <ul class="work-list kiosk">
+                    <li class="wide">
+                        <a href="javascript: void(0);" onclick="openDialog('dialog04', this)">
+                            <img src="./images/kiosk/robot.png" alt="로봇 자가대출반납기 메인화면">
+                            <h2>로봇 자가대출반납기</h2>
+                            <div class="badge-wrap">
+                                <span class="badge-publishing">퍼블리싱</span>
+                                <span class="badge-design">디자인</span>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="wide">
+                        <a href="javascript: void(0);" onclick="openDialog('dialog05', this)">
+                            <img src="./images/kiosk/kids-index.png" alt="어린이 자가대출반납기 메인화면">
+                            <h2>어린이 자가대출반납기</h2>
+                            <div class="badge-wrap">
+                                <span class="badge-publishing">퍼블리싱</span>
+                                <span class="badge-design">디자인</span>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="wide">
+                        <a href="javascript: void(0);" onclick="openDialog('dialog07', this)">
+                            <img src="./images/kiosk/notebook.png" alt="노트북 자가대여반납기 메인화면">
+                            <h2>노트북 자가대여반납기</h2>
+                            <div class="badge-wrap">
+                                <span class="badge-publishing">퍼블리싱</span>
+                                <span class="badge-design">디자인</span>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /content -->
+        </div>
+        <!-- /layout -->
+
+        <!-- footer -->
+        <footer>
+            <div class="footer">
+                <p>&copy; 2024 앎. All Rights Reserved.</p>
+            </div>
+            <button type="button" class="back-to-top" title="상단으로 이동">
+                <span class="sr-only">상단으로 이동</span>
+            </button>
+        </footer>
+        <!-- /footer -->
+    </div>
+
+    <!-- BF 자가대출반납기 팝업 -->
+    <div id="dialogLayer01" class="dialogs">
+        <div role="dialog" id="dialog01" aria-labelledby="dialog01-label" aria-modal="true" class="hidden">
+            <!-- 제목 -->
+            <div class="dialog-header">
+                <h2 id="dialog01-label" class="dialog-label">BF 자가대출반납기</h2>
+                <div class="badge-wrap">
+                    <span class="badge-publishing">퍼블리싱</span>
+                    <span class="badge-design">디자인</span>
+                </div>
+            </div>
+            <!-- /제목 -->
+
+            <!-- 내용 -->
+            <div class="dialog-body">
+                <div class="kiosk">
+                    <img src="./images/kiosk/bf-index.png" alt="BF 자가대출반납기 메인화면">
+                    <img src="./images/kiosk/bf-popup.png" alt="BF 자가대출반납기 팝업화면">
+                    <img src="./images/kiosk/bf-end.png" alt="BF 자가대출반납기 완료화면">
+                </div>
+                <div class="intro-wrap">
+                    <div class="intro">
+                        <dl>
+                            <dt>작업기간</dt>
+                            <dd>15일</dd>
+                            <dt>기여도</dt>
+                            <dd>100%</dd>
+                        </dl>
+                        <p>장애인도 키오스크를 차별 없이 이용할 수 있는 BF 자가대출반납기의 퍼블리싱과 디자인 작업이었습니다. 1차 심사에서 음성 안내와 키패드 사용 시 정확한 안내가 부족한 점 등 여러 보완사항을 지적 받아 해당 부분을 보완하였으며, 현재 2차 심사 대기중입니다.</p>
+                        <p>키오스크 작업은 처음이었고 고대비/휠체어 모드도 있어 작업하는 데 혹시 어려움이 있지 않을까 걱정했으나 우려와는 달리 웹 작업과 크게 다르지 않아 수월하게 진행할 수 있었습니다. 평소 무심코 지나쳤던 키오스크 UI에 관심을 가질 수 있는 좋은 경험이었습니다.</p>
+                        <p>언어 선택이나 음량, 글자 크기 등을 세션 스토리지를 이용해 저장했고 부족한 부분은 stackoverflow의 도움을 얻었습니다.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- /내용 -->
+
+            <button type="button" onclick="closeDialog(this)" class="btn-popup-closed" title="닫기">
+                <span class="sr-only">닫기 아이콘</span>
+                <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24"
+                    style="fill: #212832;">
+                    <path
+                        d="m16.192 6.344-4.243 4.242-4.242-4.242-1.414 1.414L10.535 12l-4.242 4.242 1.414 1.414 4.242-4.242 4.243 4.242 1.414-1.414L13.364 12l4.242-4.242z">
+                    </path>
+                </svg>
+            </button>
+        </div>
+    </div>
+    <!-- /BF 자가대출반납기 팝업 -->
+
+    <!-- 학교 자가대출반납기 팝업 -->
+    <div id="dialogLayer02" class="dialogs">
+        <div role="dialog" id="dialog02" aria-labelledby="dialog02-label" aria-modal="true" class="hidden">
+            <!-- 제목 -->
+            <div class="dialog-header">
+                <h2 id="dialog02-label" class="dialog-label">학교 자가대출반납기</h2>
+                <div class="badge-wrap">
+                    <span class="badge-publishing">퍼블리싱</span>
+                    <span class="badge-design">디자인</span>
+                </div>
+            </div>
+            <!-- /제목 -->
+
+            <!-- 내용 -->
+            <div class="dialog-body">
+                <div class="kiosk">
+                    <img src="./images/kiosk/school-index.png" alt="학교 자가대출반납기 메인화면">
+                    <img src="./images/kiosk/school-img.png" alt="학교 자가대출반납기 이미지화면">
+                    <img src="./images/kiosk/school-pw.png" alt="학교 자가대출반납기 비밀번호 입력화면">
+                </div>
+                <div class="intro-wrap">
+                    <div class="intro">
+                        <dl>
+                            <dt>작업기간</dt>
+                            <dd>3일</dd>
+                            <dt>기여도</dt>
+                            <dd>100%</dd>
+                        </dl>
+                        <p>초등학교에서 이용하는 자가대출반납기 화면으로 키가 작은 어린이들을 고려해 버튼을 최대한 하단에 위치하도록 디자인했습니다.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- /내용 -->
+
+            <button type="button" onclick="closeDialog(this)" class="btn-popup-closed" title="닫기">
+                <span class="sr-only">닫기 아이콘</span>
+                <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24"
+                    style="fill: #212832;">
+                    <path
+                        d="m16.192 6.344-4.243 4.242-4.242-4.242-1.414 1.414L10.535 12l-4.242 4.242 1.414 1.414 4.242-4.242 4.243 4.242 1.414-1.414L13.364 12l4.242-4.242z">
+                    </path>
+                </svg>
+            </button>
+        </div>
+    </div>
+    <!-- /학교 자가대출반납기 팝업 -->
+
+    <!-- 성인 자가대출반납기 팝업 -->
+    <div id="dialogLayer03" class="dialogs">
+        <div role="dialog" id="dialog03" aria-labelledby="dialog03-label" aria-modal="true" class="hidden">
+            <!-- 제목 -->
+            <div class="dialog-header">
+                <h2 id="dialog03-label" class="dialog-label">성인 자가대출반납기</h2>
+                <div class="badge-wrap">
+                    <span class="badge-publishing">퍼블리싱</span>
+                    <span class="badge-design">디자인</span>
+                </div>
+            </div>
+            <!-- /제목 -->
+
+            <!-- 내용 -->
+            <div class="dialog-body">
+                <div class="kiosk">
+                    <img src="./images/kiosk/general-index.png" alt="성인 자가대출반납기 메인화면">
+                    <img src="./images/kiosk/general-img.png" alt="성인 자가대출반납기 이미지화면">
+                    <img src="./images/kiosk/general-pw.png" alt="성인 자가대출반납기 비밀번호 입력화면">
+                </div>
+                <div class="intro-wrap">
+                    <div class="intro">
+                        <dl>
+                            <dt>작업기간</dt>
+                            <dd>2일</dd>
+                            <dt>기여도</dt>
+                            <dd>100%</dd>
+                        </dl>
+                        <p>주로 성인이 이용하는 자가대출반납기 화면으로 심플한 배경에 대비되게끔 버튼에 포인트를 주었습니다.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- /내용 -->
+
+            <button type="button" onclick="closeDialog(this)" class="btn-popup-closed" title="닫기">
+                <span class="sr-only">닫기 아이콘</span>
+                <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24"
+                    style="fill: #212832;">
+                    <path
+                        d="m16.192 6.344-4.243 4.242-4.242-4.242-1.414 1.414L10.535 12l-4.242 4.242 1.414 1.414 4.242-4.242 4.243 4.242 1.414-1.414L13.364 12l4.242-4.242z">
+                    </path>
+                </svg>
+            </button>
+        </div>
+    </div>
+    <!-- /성인 자가대출반납기 팝업 -->
+
+    <!-- 로봇 자가대출반납기 팝업 -->
+    <div id="dialogLayer04" class="dialogs">
+        <div role="dialog" id="dialog04" aria-labelledby="dialog04-label" aria-modal="true" class="hidden">
+            <!-- 제목 -->
+            <div class="dialog-header">
+                <h2 id="dialog04-label" class="dialog-label">로봇 자가대출반납기</h2>
+                <div class="badge-wrap">
+                    <span class="badge-publishing">퍼블리싱</span>
+                    <span class="badge-design">디자인</span>
+                </div>
+            </div>
+            <!-- /제목 -->
+
+            <!-- 내용 -->
+            <div class="dialog-body">
+                <img src="./images/kiosk/robot.png" alt="로봇 자가대출반납기 메인화면">
+                <div class="intro-wrap">
+                    <div class="intro">
+                        <dl>
+                            <dt>작업기간</dt>
+                            <dd>2일</dd>
+                            <dt>기여도</dt>
+                            <dd>100%</dd>
+                        </dl>
+                        <p>LG 클로이 로봇의 자가대출반납기 키오스크 화면을 작업했습니다. 친숙하게 다가갈 수 있도록 디자인 하는 데 중점을 두었고, 작은 화면이라 집중할 수 있도록 색상을 다양하게 사용했습니다.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- /내용 -->
+
+            <button type="button" onclick="closeDialog(this)" class="btn-popup-closed" title="닫기">
+                <span class="sr-only">닫기 아이콘</span>
+                <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24"
+                    style="fill: #212832;">
+                    <path
+                        d="m16.192 6.344-4.243 4.242-4.242-4.242-1.414 1.414L10.535 12l-4.242 4.242 1.414 1.414 4.242-4.242 4.243 4.242 1.414-1.414L13.364 12l4.242-4.242z">
+                    </path>
+                </svg>
+            </button>
+        </div>
+    </div>
+    <!-- /로봇 자가대출반납기 팝업 -->
+
+    <!-- 어린이 자가대출반납기 팝업 -->
+    <div id="dialogLayer05" class="dialogs">
+        <div role="dialog" id="dialog05" aria-labelledby="dialog05-label" aria-modal="true" class="hidden">
+            <!-- 제목 -->
+            <div class="dialog-header">
+                <h2 id="dialog05-label" class="dialog-label">어린이 자가대출반납기</h2>
+                <div class="badge-wrap">
+                    <span class="badge-publishing">퍼블리싱</span>
+                    <span class="badge-design">디자인</span>
+                </div>
+            </div>
+            <!-- /제목 -->
+
+            <!-- 내용 -->
+            <div class="dialog-body">
+                <img src="./images/kiosk/kids-index.png" alt="어린이 자가대출반납기 메인화면">
+                <div class="intro-wrap">
+                    <div class="intro">
+                        <dl>
+                            <dt>작업기간</dt>
+                            <dd>2일</dd>
+                            <dt>기여도</dt>
+                            <dd>100%</dd>
+                        </dl>
+                        <p>어린이가 이용하는 자가대출반납기로 귀여운 캐릭터와 큼지막한 버튼, 다양한 색상 사용으로 호기심을 자극할 수 있도록 디자인했습니다.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- /내용 -->
+
+            <button type="button" onclick="closeDialog(this)" class="btn-popup-closed" title="닫기">
+                <span class="sr-only">닫기 아이콘</span>
+                <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24"
+                    style="fill: #212832;">
+                    <path
+                        d="m16.192 6.344-4.243 4.242-4.242-4.242-1.414 1.414L10.535 12l-4.242 4.242 1.414 1.414 4.242-4.242 4.243 4.242 1.414-1.414L13.364 12l4.242-4.242z">
+                    </path>
+                </svg>
+            </button>
+        </div>
+    </div>
+    <!-- /어린이 자가대출반납기 팝업 -->
+
+    <!-- 학교 방문자 출입등록 시스템 팝업 -->
+    <div id="dialogLayer06" class="dialogs">
+        <div role="dialog" id="dialog06" aria-labelledby="dialog06-label" aria-modal="true" class="hidden">
+            <!-- 제목 -->
+            <div class="dialog-header">
+                <h2 id="dialog06-label" class="dialog-label">학교 방문자 출입등록 시스템</h2>
+                <div class="badge-wrap">
+                    <span class="badge-publishing">퍼블리싱</span>
+                    <span class="badge-design">디자인</span>
+                </div>
+            </div>
+            <!-- /제목 -->
+
+            <!-- 내용 -->
+            <div class="dialog-body">
+                <div class="kiosk">
+                    <img src="./images/kiosk/acms-guide.png" alt="학교 방문자 출입등록 시스템 가이드화면">
+                    <img src="./images/kiosk/acms-index.png" alt="학교 방문자 출입등록 시스템 메인화면">
+                    <img src="./images/kiosk/acms-sub.png" alt="학교 방문자 출입등록 시스템 서브화면">
+                </div>
+                <div class="intro-wrap">
+                    <div class="intro">
+                        <dl>
+                            <dt>작업기간</dt>
+                            <dd>3일</dd>
+                            <dt>기여도</dt>
+                            <dd>100%</dd>
+                        </dl>
+                        <p>학교 방문자가 키오스크를 통해 출입 등록을 하거나, 예약자가 키오스크에서 인증을 받은 후 학교를 출입할 수 있는 시스템입니다. 절차가 다소 복잡할 수 있기 때문에 가이드 화면이 우선으로 보이도록 디자인했습니다.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- /내용 -->
+
+            <button type="button" onclick="closeDialog(this)" class="btn-popup-closed" title="닫기">
+                <span class="sr-only">닫기 아이콘</span>
+                <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24"
+                    style="fill: #212832;">
+                    <path
+                        d="m16.192 6.344-4.243 4.242-4.242-4.242-1.414 1.414L10.535 12l-4.242 4.242 1.414 1.414 4.242-4.242 4.243 4.242 1.414-1.414L13.364 12l4.242-4.242z">
+                    </path>
+                </svg>
+            </button>
+        </div>
+    </div>
+    <!-- /학교 방문자 출입등록 시스템 팝업 -->
+
+    <!-- 노트북 자가대여반납기 팝업 -->
+    <div id="dialogLayer07" class="dialogs">
+        <div role="dialog" id="dialog07" aria-labelledby="dialog07-label" aria-modal="true" class="hidden">
+            <!-- 제목 -->
+            <div class="dialog-header">
+                <h2 id="dialog07-label" class="dialog-label">노트북 자가대여반납기</h2>
+                <div class="badge-wrap">
+                    <span class="badge-publishing">퍼블리싱</span>
+                    <span class="badge-design">디자인</span>
+                </div>
+            </div>
+            <!-- /제목 -->
+
+            <!-- 내용 -->
+            <div class="dialog-body">
+                <img src="./images/kiosk/notebook.png" alt="노트북 자가대여반납기 메인화면">
+                <div class="intro-wrap">
+                    <div class="intro">
+                        <dl>
+                            <dt>작업기간</dt>
+                            <dd>2일</dd>
+                            <dt>기여도</dt>
+                            <dd>100%</dd>
+                        </dl>
+                        <p>노트북을 대여하고 반납할 수 있는 키오스크 화면으로 두 개의 버튼을 큼지막하게 배치하여 버튼을 손쉽게 누를 수 있도록 하였습니다.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- /내용 -->
+
+            <button type="button" onclick="closeDialog(this)" class="btn-popup-closed" title="닫기">
+                <span class="sr-only">닫기 아이콘</span>
+                <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24"
+                    style="fill: #212832;">
+                    <path
+                        d="m16.192 6.344-4.243 4.242-4.242-4.242-1.414 1.414L10.535 12l-4.242 4.242 1.414 1.414 4.242-4.242 4.243 4.242 1.414-1.414L13.364 12l4.242-4.242z">
+                    </path>
+                </svg>
+            </button>
+        </div>
+    </div>
+    <!-- /노트북 자가대여반납기 팝업 -->
+
+    <script src="./lib/js/jquery-1.11.2.min.js"></script>
+    <script src="./lib/js/aria-tabs.js"></script>
+    <script src="./lib/js/aria-dialog.js"></script>
+    <script src="./lib/js/common.js"></script>
+</body>
+
+</html>
